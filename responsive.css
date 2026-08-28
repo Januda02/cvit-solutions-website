@@ -76,6 +76,18 @@
     position: relative !important;
   }
 
+  /* Why Cvit section — ensure sidebar and numbered items don't overlap */
+  [style*="grid-template-columns: 380px"],
+  [style*="grid-template-columns:380px"] {
+    gap: 0 !important;
+  }
+  [style*="grid-template-columns: 380px"] > [style*="position"],
+  [style*="grid-template-columns:380px"] > [style*="position"] {
+    margin-bottom: 8px !important;
+    padding-bottom: 24px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
   /* Remove fixed dimensions on h1 */
   h1[style*="width"] { width: auto !important; height: auto !important; }
 

@@ -1,0 +1,8 @@
+# Design source files (Claude Design canvas format)
+*.dc.html
+
+# Archives
+*.zip
+
+# Claude Code local config
+.claude/settings.local.json

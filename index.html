@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; font-family: 'Montserrat', sans-serif; background: #FDFCF7; color: #141414; -webkit-font-smoothing: antialiased; }
-  a { color: #141414; text-decoration: none; }
+  body { margin: 0; font-family: 'Montserrat', sans-serif; background: #0a0a0a; color: #FDFCF7; -webkit-font-smoothing: antialiased; }
+  a { color: #FDFCF7; text-decoration: none; }
   a:hover { color: #EF3B37; }
   ::selection { background: #EF3B37; color: #FDFCF7; }
   @keyframes cvitPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
@@ -35,23 +35,23 @@
 
   .cv-nav { transition: padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease); }
   .cv-nav.is-compact .cv-nav-inner { padding-top: 10px !important; padding-bottom: 10px !important; }
-  .cv-nav.is-compact { background: rgba(253,252,247,0.94) !important; box-shadow: 0 1px 0 rgba(20,20,20,0.06), 0 8px 24px rgba(20,20,20,0.04); }
+  .cv-nav.is-compact { background: rgba(10,10,10,0.94) !important; box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 8px 24px rgba(0,0,0,0.4); }
   .cv-nav-link { position: relative; transition: color .3s var(--ease); }
   .cv-nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:#EF3B37; transform: scaleX(0); transform-origin: left center; transition: transform .35s var(--ease); }
   .cv-nav-link:hover::after { transform: scaleX(1); }
-  .cv-nav-link:hover { color: #141414 !important; }
+  .cv-nav-link:hover { color: #FDFCF7 !important; }
 
   .cv-btn { transition: transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease); }
   .cv-btn:hover { transform: translateY(-2px); }
   .cv-btn-primary:hover { box-shadow: 0 12px 28px rgba(239,59,55,0.28); }
-  .cv-btn-ink:hover { box-shadow: 0 12px 28px rgba(20,20,20,0.18); }
+  .cv-btn-ink:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.5); }
   .cv-btn-ghost:hover { border-color: #EF3B37 !important; color: #EF3B37; }
   .cv-btn .cv-arrow { display:inline-block; transition: transform .35s var(--ease); }
   .cv-btn:hover .cv-arrow { transform: translateX(4px); }
 
   .cv-srv { position: relative; transition: background .4s var(--ease); }
   .cv-srv::before { content:""; position:absolute; left:0; top:0; height:100%; width:2px; background:#EF3B37; transform: scaleY(0); transform-origin: top; transition: transform .5s var(--ease); }
-  .cv-srv:hover { background: rgba(20,20,20,0.02); }
+  .cv-srv:hover { background: rgba(255,255,255,0.03); }
   .cv-srv:hover::before { transform: scaleY(1); }
   .cv-srv-title { transition: transform .5s var(--ease), color .35s var(--ease); display:inline-block; }
   .cv-srv:hover .cv-srv-title { transform: translateX(14px); }
@@ -64,7 +64,7 @@
   .cv-proj:hover .cv-proj-arrow { transform: scale(1) rotate(0); opacity:1; }
 
   .cv-test { transition: transform .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease); }
-  .cv-test:hover { transform: translateY(-4px); border-color: rgba(239,59,55,0.4) !important; box-shadow: 0 14px 30px rgba(20,20,20,0.06); }
+  .cv-test:hover { transform: translateY(-4px); border-color: rgba(239,59,55,0.4) !important; box-shadow: 0 14px 30px rgba(0,0,0,0.4), 0 0 20px rgba(239,59,55,0.08); }
 
   .cv-step-node { transition: transform .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease); }
   .cv-step:hover .cv-step-node { transform: scale(1.08); background: #EF3B37 !important; box-shadow: 0 8px 24px rgba(239,59,55,0.35); }
@@ -84,13 +84,15 @@
   }
 </style>
 <script src="./cvit-motion.js"></script>
+<link rel="stylesheet" href="./responsive.css">
+<script src="./mobile-nav.js"></script>
 </helmet>
 
-<div style="width:100%; min-width:1280px; background:#FDFCF7; color:#141414;">
+<div style="width:100%; background:#0a0a0a; color:#FDFCF7;">
   <div class="cv-progress"></div>
 
   <!-- NAV -->
-  <nav class="cv-nav" style="position:sticky; top:0; z-index:50; background:rgba(253,252,247,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(20,20,20,0.06);">
+  <nav class="cv-nav" style="position:sticky; top:0; z-index:50; background:rgba(10,10,10,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06);">
     
   <div class="cv-nav-inner" style="max-width:1440px; margin:0 auto; padding:20px 56px; display:flex; align-items:center; justify-content:space-between; transition: padding .4s cubic-bezier(.22,.61,.36,1);">
       <div style="display:flex; align-items:center; gap:12px;">
@@ -98,17 +100,17 @@
         
       </div>
       <div style="display: flex; align-items: center; gap: 44px; font-size: 16px; font-weight: 500">
-        <a href="./" class="cv-nav-link" style="color:#141414;">Home</a>
-        <a href="./services.html" class="cv-nav-link" style="color:#666;">Services</a>
-        <a href="./about.html" class="cv-nav-link" style="color:#666;">About</a>
-        <a href="./projects.html" class="cv-nav-link" style="color:#666;">Projects</a>
-        <a href="./contact.html" class="cv-nav-link" style="color:#666;">Contact</a>
+        <a href="./" class="cv-nav-link" style="color:#FDFCF7;">Home</a>
+        <a href="./services.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Services</a>
+        <a href="./about.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">About</a>
+        <a href="./projects.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Projects</a>
+        <a href="./contact.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Contact</a>
       </div>
       <div style="display:flex; align-items:center; gap:24px;">
         
         <a href="#" class="cv-btn cv-btn-primary" style="background: #EF3B37; color: #FDFCF7; padding: 12px 22px; border-radius: 100px; font-size: 15px; font-weight: 600; letter-spacing: 0.01em; display: inline-flex; align-items: center; gap: 8px">
           Start a Project
-          <span style="display:inline-block; width:14px; height:1.5px; background:#FDFCF7; position:relative;"><span style="position:absolute; right:0; top:-3px; width:6px; height:6px; border-right:1.5px solid #FDFCF7; border-top:1.5px solid #FDFCF7; transform:rotate(45deg);"></span></span>
+          <span style="display:inline-block; width:14px; height:1.5px; background:#0a0a0a; position:relative;"><span style="position:absolute; right:0; top:-3px; width:6px; height:6px; border-right:1.5px solid #FDFCF7; border-top:1.5px solid #FDFCF7; transform:rotate(45deg);"></span></span>
         </a>
       </div>
     </div></nav>
@@ -116,7 +118,7 @@
   <!-- HERO -->
   <section style="max-width:1440px; margin:0 auto; padding:64px 56px 40px;">
     <!-- Meta row -->
-    <div class="cv-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase;">
+    <div class="cv-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase;">
       <div style="display:flex; gap:32px;">
         
         
@@ -127,7 +129,7 @@
     <!-- Headline block -->
     <div data-hero-text="" class="cv-reveal-lg" style="display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:end; margin-bottom:56px;">
       
-      <h1 style="margin: 0; font-size: 110px; line-height: 0.92; font-weight: 800; letter-spacing: -0.045em; color: #141414; width: 638px; height: 461px">
+      <h1 style="margin: 0; font-size: clamp(36px, 8vw, 110px); line-height: 0.92; font-weight: 800; letter-spacing: -0.045em; color: #FDFCF7; width: 638px; height: 461px">
         Digital<br>
         solutions,<br>
         built for<br>
@@ -137,12 +139,12 @@
         <div data-hero-3d="" style="position:relative; width:100%; max-width:440px; height:220px; margin-bottom:36px; perspective: 900px; perspective-origin: 50% 50%;">
           <div data-hero-3d-inner="" style="position:absolute; top:50%; left:50%; width:160px; height:160px; transform-style: preserve-3d; transform: translate(-50%,-50%) rotateX(-18deg) rotateY(0deg) scale(1);">
             <!-- Cube faces (wireframe) -->
-            <div style="position:absolute; inset:0; border:1.5px solid #141414; background: rgba(20,20,20,0.02); transform: translateZ(80px);"></div>
-            <div style="position:absolute; inset:0; border:1.5px solid #141414; background: rgba(20,20,20,0.02); transform: rotateY(180deg) translateZ(80px);"></div>
-            <div style="position:absolute; inset:0; border:1.5px solid #141414; background: rgba(20,20,20,0.03); transform: rotateY(90deg) translateZ(80px);"></div>
-            <div style="position:absolute; inset:0; border:1.5px solid #141414; background: rgba(20,20,20,0.03); transform: rotateY(-90deg) translateZ(80px);"></div>
-            <div style="position:absolute; inset:0; border:1.5px solid #141414; background: rgba(20,20,20,0.02); transform: rotateX(90deg) translateZ(80px);"></div>
-            <div style="position:absolute; inset:0; border:1.5px solid #141414; background: rgba(20,20,20,0.04); transform: rotateX(-90deg) translateZ(80px);"></div>
+            <div style="position:absolute; inset:0; border:1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); transform: translateZ(80px);"></div>
+            <div style="position:absolute; inset:0; border:1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); transform: rotateY(180deg) translateZ(80px);"></div>
+            <div style="position:absolute; inset:0; border:1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); transform: rotateY(90deg) translateZ(80px);"></div>
+            <div style="position:absolute; inset:0; border:1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); transform: rotateY(-90deg) translateZ(80px);"></div>
+            <div style="position:absolute; inset:0; border:1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); transform: rotateX(90deg) translateZ(80px);"></div>
+            <div style="position:absolute; inset:0; border:1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); transform: rotateX(-90deg) translateZ(80px);"></div>
             <!-- Inner red core -->
             <div style="position:absolute; top:50%; left:50%; width:36px; height:36px; margin:-18px 0 0 -18px; background:#EF3B37; box-shadow: 0 0 40px rgba(239,59,55,0.6); transform-style: preserve-3d;">
               <div style="position:absolute; inset:0; background:#EF3B37; transform: rotateY(90deg);"></div>
@@ -152,20 +154,20 @@
             <div style="position:absolute; top:50%; left:50%; width:200px; height:200px; margin:-100px 0 0 -100px; border:1px dashed rgba(239,59,55,0.5); border-radius:50%; transform: rotateX(75deg);"></div>
           </div>
           <!-- Corner label -->
-          <div style="position:absolute; top:0; left:0; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; color:#999; text-transform:uppercase;">◆ cvit-core</div>
-          <div style="position:absolute; bottom:0; right:0; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; color:#999;">SCROLL · ROTATE</div>
+          <div style="position:absolute; top:0; left:0; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; color:rgba(255,255,255,0.4); text-transform:uppercase;">◆ cvit-core</div>
+          <div style="position:absolute; bottom:0; right:0; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; color:rgba(255,255,255,0.4);">SCROLL · ROTATE</div>
         </div>
-        <p style="font-size:17px; line-height:1.55; color:#3a3a3a; margin:0 0 32px; max-width:440px; font-weight:400;">
+        <p style="font-size:17px; line-height:1.55; color:rgba(255,255,255,0.7); margin:0 0 32px; max-width:440px; font-weight:400;">
           We're a technology studio designing and engineering the interfaces, platforms, and infrastructure that move ambitious companies forward. Precise systems. Thoughtful products. Zero filler.
         </p>
         <div style="display:flex; gap:14px; align-items:center;">
-          <a href="./contact.html" class="cv-btn cv-btn-ink" style="background:#141414; color:#FDFCF7; padding:16px 28px; border-radius:100px; font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px;">
+          <a href="./contact.html" class="cv-btn cv-btn-ink" style="background:#111; color:#FDFCF7; padding:16px 28px; border-radius:100px; font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px;">
             <span style="width:8px; height:8px; border-radius:50%; background:#EF3B37;"></span>
             Start a Project
           </a>
-          <a href="#" class="cv-btn cv-btn-ghost" style="color:#141414; padding:16px 24px; border-radius:100px; font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px; border:1.5px solid rgba(20,20,20,0.15);">
+          <a href="#" class="cv-btn cv-btn-ghost" style="color:#FDFCF7; padding:16px 24px; border-radius:100px; font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px; border:1.5px solid rgba(255,255,255,0.1);">
             View Our Work
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#999;">[24]</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">[24]</span>
           </a>
         </div>
       </div>
@@ -248,35 +250,35 @@
       <div data-hero-laptop="" style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:640px; animation: cvitFloat 6s ease-in-out infinite; transition: transform .1s linear;">
         <!-- screen -->
         <div style="background:#111; border:1px solid #2a2a2a; border-bottom:none; border-radius:14px 14px 4px 4px; padding:10px; box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03) inset;">
-          <div style="background:#FDFCF7; border-radius:8px; overflow:hidden; aspect-ratio: 16 / 10; position:relative;">
+          <div style="background:#0a0a0a; border-radius:8px; overflow:hidden; aspect-ratio: 16 / 10; position:relative;">
             <!-- app chrome -->
-            <div style="display:flex; align-items:center; padding:10px 14px; border-bottom:1px solid rgba(20,20,20,0.06); gap:8px;">
+            <div style="display:flex; align-items:center; padding:10px 14px; border-bottom:1px solid rgba(255,255,255,0.06); gap:8px;">
               <div style="display:flex; gap:5px;">
                 <div style="width:9px; height:9px; border-radius:50%; background:#EF3B37;"></div>
                 <div style="width:9px; height:9px; border-radius:50%; background:#e5c11a;"></div>
                 <div style="width:9px; height:9px; border-radius:50%; background:#4ade80;"></div>
               </div>
-              <div style="margin-left:14px; font-family:'JetBrains Mono',monospace; font-size:9px; color:#999; display:inline-flex; align-items:center; gap:6px;">
+              <div style="margin-left:14px; font-family:'JetBrains Mono',monospace; font-size:9px; color:rgba(255,255,255,0.4); display:inline-flex; align-items:center; gap:6px;">
                 <span style="color:#4ade80;">●</span> tutorgradeconsultancy.co.uk
               </div>
               <div style="margin-left:auto; display:flex; align-items:center; gap:8px;">
-                <div style="width:16px; height:16px; border-radius:50%; border:1.5px solid #EF3B37; position:relative;"><div style="position:absolute; inset:4px; background:#141414; border-radius:50%;"></div></div>
+                <div style="width:16px; height:16px; border-radius:50%; border:1.5px solid #EF3B37; position:relative;"><div style="position:absolute; inset:4px; background:#111; border-radius:50%;"></div></div>
                 <span style="font-size:10px; font-weight:700;">Tutor Grade</span>
               </div>
             </div>
             <!-- app body -->
             <div style="display:grid; grid-template-columns: 130px 1fr; height: calc(100% - 34px);">
               <!-- side -->
-              <div style="background:#f4f2ea; padding:14px 12px; font-size:10px; border-right:1px solid rgba(20,20,20,0.05);">
-                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:#999; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Menu</div>
+              <div style="background:#141414; padding:14px 12px; font-size:10px; border-right:1px solid rgba(255,255,255,0.05);">
+                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px;">Menu</div>
                 <div style="display:flex; flex-direction:column; gap:5px;">
-                  <div style="padding:5px 8px; background:#141414; color:#FDFCF7; border-radius:4px; font-weight:600;">Home</div>
-                  <div style="padding:5px 8px; color:#666;">About</div>
-                  <div style="padding:5px 8px; color:#666;">Services</div>
-                  <div style="padding:5px 8px; color:#666;">Courses</div>
-                  <div style="padding:5px 8px; color:#666;">Contact</div>
+                  <div style="padding:5px 8px; background:#111; color:#FDFCF7; border-radius:4px; font-weight:600;">Home</div>
+                  <div style="padding:5px 8px; color:rgba(255,255,255,0.5);">About</div>
+                  <div style="padding:5px 8px; color:rgba(255,255,255,0.5);">Services</div>
+                  <div style="padding:5px 8px; color:rgba(255,255,255,0.5);">Courses</div>
+                  <div style="padding:5px 8px; color:rgba(255,255,255,0.5);">Contact</div>
                 </div>
-                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:#999; letter-spacing:0.1em; text-transform:uppercase; margin:14px 0 8px;">Platforms</div>
+                <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin:14px 0 8px;">Platforms</div>
                 <div style="display:flex; flex-direction:column; gap:6px; font-size:9px;">
                   <div style="display:flex; gap:6px; align-items:center;"><span style="width:6px; height:6px; background:#EF3B37; border-radius:50%;"></span>Main site</div>
                   <div style="display:flex; gap:6px; align-items:center;"><span style="width:6px; height:6px; background:#EF3B37; border-radius:50%;"></span>Courses</div>
@@ -286,29 +288,29 @@
               <div style="padding:16px 20px; overflow:hidden;">
                 <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px;">
                   <div>
-                    <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:#999; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px;">Education / EdTech</div>
+                    <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px;">Education / EdTech</div>
                     <div style="font-size:20px; font-weight:800; letter-spacing:-0.025em; line-height:1;">Tutor Grade<br>Consultancy<span style="color:#EF3B37;">.</span></div>
                   </div>
                   <div style="display:flex; gap:5px;">
                     <div style="padding:4px 10px; background:#EF3B37; color:#FDFCF7; border-radius:100px; font-size:9px; font-weight:600;">Enrol</div>
-                    <div style="padding:4px 10px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:9px; font-weight:600;">Courses</div>
+                    <div style="padding:4px 10px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:9px; font-weight:600;">Courses</div>
                   </div>
                 </div>
-                <div style="font-size:10px; color:#3a3a3a; line-height:1.5; margin-bottom:12px; max-width:280px;">Consultancy and online learning environment for students — enrolment, courses, and study resources in one place.</div>
+                <div style="font-size:10px; color:rgba(255,255,255,0.7); line-height:1.5; margin-bottom:12px; max-width:280px;">Consultancy and online learning environment for students — enrolment, courses, and study resources in one place.</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
-                  <div style="background:#f4f2ea; border-radius:6px; padding:10px;">
-                    <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:#999; text-transform:uppercase; letter-spacing:0.1em;">Main site</div>
+                  <div style="background:#141414; border-radius:6px; padding:10px;">
+                    <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.1em;">Main site</div>
                     <div style="font-size:10px; font-weight:700; margin-top:3px; letter-spacing:-0.01em;">tutorgradeconsultancy<br>.co.uk</div>
                     <div style="display:inline-flex; align-items:center; gap:4px; font-size:8px; color:#4ade80; font-weight:700; margin-top:4px;"><span style="width:5px; height:5px; background:#4ade80; border-radius:50%;"></span>LIVE</div>
                   </div>
-                  <div style="background:#141414; color:#FDFCF7; border-radius:6px; padding:10px;">
+                  <div style="background:#111; color:#FDFCF7; border-radius:6px; padding:10px;">
                     <div style="font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.1em;">Course platform</div>
                     <div style="font-size:10px; font-weight:700; margin-top:3px; letter-spacing:-0.01em;">courses.<br>tutorgradeconsultancy<span style="color:#EF3B37;">.</span>co.uk</div>
                     <div style="display:inline-flex; align-items:center; gap:4px; font-size:8px; color:#4ade80; font-weight:700; margin-top:4px;"><span style="width:5px; height:5px; background:#4ade80; border-radius:50%;"></span>LIVE</div>
                   </div>
                 </div>
-                <div style="background:#f4f2ea; border-radius:6px; padding:10px 12px; display:flex; align-items:center; justify-content:space-between;">
-                  <div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:8px; color:#666; letter-spacing:0.08em; text-transform:uppercase;">
+                <div style="background:#141414; border-radius:6px; padding:10px 12px; display:flex; align-items:center; justify-content:space-between;">
+                  <div style="display:flex; gap:14px; font-family:'JetBrains Mono',monospace; font-size:8px; color:rgba(255,255,255,0.5); letter-spacing:0.08em; text-transform:uppercase;">
                     <span>◆ Consultancy</span>
                     <span>◆ Courses</span>
                     <span>◆ Enrolment</span>
@@ -338,22 +340,22 @@
   <section style="max-width:1440px; margin:0 auto; padding:120px 56px;">
     <div class="cv-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px;">
       <div>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">◆ 002 / Services</div>
-        <h2 style="margin:0; font-size:64px; line-height:1; font-weight:800; letter-spacing:-0.035em; max-width:780px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">◆ 002 / Services</div>
+        <h2 style="margin:0; font-size: clamp(26px, 5vw, 64px); line-height:1; font-weight:800; letter-spacing:-0.035em; max-width:780px;">
           Four disciplines,<br>one <span style="font-style:italic; font-weight:500;">integrated</span> studio<span style="color:#EF3B37;">.</span>
         </h2>
       </div>
-      <p style="max-width:320px; font-size:14px; line-height:1.6; color:#666; margin:0;">
+      <p style="max-width:320px; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.5); margin:0;">
         Every engagement pulls from these capabilities. We staff small, senior teams — never handoffs between silos.
       </p>
     </div>
 
-    <div style="border-top:1px solid #141414;">
+    <div style="border-top:1px solid rgba(255,255,255,0.15);">
       <!-- service row -->
-      <div class="cv-srv cv-reveal" style="--cv-delay:0ms; display:grid; grid-template-columns: 80px 1.2fr 1.6fr 1.2fr; border-bottom:1px solid rgba(20,20,20,0.15); padding:36px 0; align-items:start; gap:40px;">
+      <div class="cv-srv cv-reveal" style="--cv-delay:0ms; display:grid; grid-template-columns: 80px 1.2fr 1.6fr 1.2fr; border-bottom:1px solid rgba(255,255,255,0.1); padding:36px 0; align-items:start; gap:40px;">
         <div style="font-family: 'JetBrains Mono',monospace; font-size: 12px; color: #999; padding-left: 12px; padding-right: 12px">/01</div>
-        <div class="cv-srv-title" style="font-size:32px; font-weight:700; letter-spacing:-0.025em;">Product design<span style="color: rgb(239, 59, 55);">.</span></div>
-        <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:0;">Interface systems, brand-integrated visual language, and the research and prototyping loops that get products to product-market fit.</p>
+        <div class="cv-srv-title" style="font-size: clamp(20px, 2.5vw, 32px); font-weight:700; letter-spacing:-0.025em;">Product design<span style="color: rgb(239, 59, 55);">.</span></div>
+        <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0;">Interface systems, brand-integrated visual language, and the research and prototyping loops that get products to product-market fit.</p>
         <div style="font-size: 12px; color: #666; line-height: 1.7; width: 234px; text-align: left">
           <div>— UX research</div>
           <div>— Design systems</div>
@@ -362,11 +364,11 @@
         </div>
       </div>
 
-      <div class="cv-srv cv-reveal" style="--cv-delay:80ms; display:grid; grid-template-columns: 80px 1.2fr 1.6fr 1.2fr; border-bottom:1px solid rgba(20,20,20,0.15); padding:36px 0; align-items:start; gap:40px;">
+      <div class="cv-srv cv-reveal" style="--cv-delay:80ms; display:grid; grid-template-columns: 80px 1.2fr 1.6fr 1.2fr; border-bottom:1px solid rgba(255,255,255,0.1); padding:36px 0; align-items:start; gap:40px;">
         <div style="font-family: 'JetBrains Mono',monospace; font-size: 12px; color: #999; padding-left: 12px; padding-right: 12px">/02</div>
-        <div class="cv-srv-title" style="font-size:32px; font-weight:700; letter-spacing:-0.025em;">Engineering<br>&amp; platforms<span style="color:#EF3B37;">.</span></div>
-        <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:0;">Full-stack builds on modern edge infrastructure. Type-safe from database to interaction, with observability baked in from day one.</p>
-        <div style="font-size:12px; color:#666; line-height:1.7;">
+        <div class="cv-srv-title" style="font-size: clamp(20px, 2.5vw, 32px); font-weight:700; letter-spacing:-0.025em;">Engineering<br>&amp; platforms<span style="color:#EF3B37;">.</span></div>
+        <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0;">Full-stack builds on modern edge infrastructure. Type-safe from database to interaction, with observability baked in from day one.</p>
+        <div style="font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7;">
           <div>— Web apps &amp; APIs</div>
           <div>— Edge &amp; cloud</div>
           <div>— iOS &amp; Android</div>
@@ -374,11 +376,11 @@
         </div>
       </div>
 
-      <div class="cv-srv cv-reveal" style="--cv-delay:160ms; display:grid; grid-template-columns: 80px 1.2fr 1.6fr 1.2fr; border-bottom:1px solid rgba(20,20,20,0.15); padding:36px 0; align-items:start; gap:40px;">
+      <div class="cv-srv cv-reveal" style="--cv-delay:160ms; display:grid; grid-template-columns: 80px 1.2fr 1.6fr 1.2fr; border-bottom:1px solid rgba(255,255,255,0.1); padding:36px 0; align-items:start; gap:40px;">
         <div style="font-family: 'JetBrains Mono',monospace; font-size: 12px; color: #999; padding-left: 12px; padding-right: 12px">/03</div>
-        <div class="cv-srv-title" style="font-size:32px; font-weight:700; letter-spacing:-0.025em;">Applied AI<br>systems<span style="color:#EF3B37;">.</span></div>
-        <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:0;">LLM-native features, retrieval pipelines, and agentic workflows integrated cleanly into products your users already understand.</p>
-        <div style="font-size:12px; color:#666; line-height:1.7;">
+        <div class="cv-srv-title" style="font-size: clamp(20px, 2.5vw, 32px); font-weight:700; letter-spacing:-0.025em;">Applied AI<br>systems<span style="color:#EF3B37;">.</span></div>
+        <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0;">LLM-native features, retrieval pipelines, and agentic workflows integrated cleanly into products your users already understand.</p>
+        <div style="font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7;">
           <div>— Retrieval &amp; RAG</div>
           <div>— Agent orchestration</div>
           <div>— Evaluation harnesses</div>
@@ -386,9 +388,9 @@
         </div>
       </div><div class="cv-srv cv-reveal" style="--cv-delay:240ms; display:grid; grid-template-columns: 80px 1.2fr 1.6fr 1.2fr; padding:36px 0; align-items:start; gap:40px;">
         
-        <div style="font-family: 'JetBrains Mono',monospace; font-size: 12px; color: #999; padding-left: 12px; padding-right: 12px">/04</div><div class="cv-srv-title" style="font-size:32px; font-weight:700; letter-spacing:-0.025em;">Strategy<br>&amp; direction<span style="color:#EF3B37;">.</span></div>
-        <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:0;">Fractional design and technology leadership for founders and product teams navigating early ambiguity or scaling infrastructure.</p>
-        <div style="font-size:12px; color:#666; line-height:1.7;">
+        <div style="font-family: 'JetBrains Mono',monospace; font-size: 12px; color: #999; padding-left: 12px; padding-right: 12px">/04</div><div class="cv-srv-title" style="font-size: clamp(20px, 2.5vw, 32px); font-weight:700; letter-spacing:-0.025em;">Strategy<br>&amp; direction<span style="color:#EF3B37;">.</span></div>
+        <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0;">Fractional design and technology leadership for founders and product teams navigating early ambiguity or scaling infrastructure.</p>
+        <div style="font-size:12px; color:rgba(255,255,255,0.5); line-height:1.7;">
           <div>— Product strategy</div>
           <div>— Technical audits</div>
           <div>— Team scaffolding</div>
@@ -401,7 +403,7 @@
   </section>
 
   <!-- ABOUT -->
-  <section class="cv-reveal-lg" style="background:#141414; color:#FDFCF7; padding:140px 0; position:relative; overflow:hidden;">
+  <section class="cv-reveal-lg" style="background:#111; color:#FDFCF7; padding:140px 0; position:relative; overflow:hidden;">
     <div style="position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 64px 64px;"></div>
     <div style="max-width:1440px; margin:0 auto; padding:0 56px; position:relative;">
       <div style="display:grid; grid-template-columns: 1fr 1.4fr; gap:80px; align-items:start;">
@@ -413,12 +415,12 @@
             ~10 people
           </div>
           <div style="display:flex; align-items:center; gap:16px;">
-            <div style="width:56px; height:56px; border-radius:50%; border:2.5px solid #EF3B37; display:flex; align-items:center; justify-content:center;"><div style="width:14px; height:14px; background:#FDFCF7; border-radius:50%;"></div></div>
+            <div style="width:56px; height:56px; border-radius:50%; border:2.5px solid #EF3B37; display:flex; align-items:center; justify-content:center;"><div style="width:14px; height:14px; background:#0a0a0a; border-radius:50%;"></div></div>
             <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,0.5); letter-spacing:0.05em;">CVIT/SOLUTIONS</div>
           </div>
         </div>
         <div>
-          <div style="font-size:42px; line-height:1.15; font-weight:600; letter-spacing:-0.02em; max-width:840px;">
+          <div style="font-size: clamp(22px, 3.5vw, 42px); line-height:1.15; font-weight:600; letter-spacing:-0.02em; max-width:840px;">
             Cvit is a technology studio for teams who care how software is <span style="font-style:italic; color:#EF3B37;">actually made</span>. We work with founders, product leaders, and engineering directors on the products they can't afford to get wrong — from first prototype through the second and third rewrite.
           </div>
         </div>
@@ -430,10 +432,10 @@
   <section style="max-width:1440px; margin:0 auto; padding:140px 56px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:72px;">
       <div>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">◆ 004 / Featured Work</div>
-        <h2 style="margin:0; font-size:64px; line-height:1; font-weight:800; letter-spacing:-0.035em;">Selected projects<span style="color:#EF3B37;">.</span></h2>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">◆ 004 / Featured Work</div>
+        <h2 style="margin:0; font-size: clamp(26px, 5vw, 64px); line-height:1; font-weight:800; letter-spacing:-0.035em;">Selected projects<span style="color:#EF3B37;">.</span></h2>
       </div>
-      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#999; letter-spacing:0.1em; text-transform:uppercase; padding-bottom:6px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; padding-bottom:6px;">
         2 projects &nbsp;·&nbsp; <span style="color:#EF3B37;">● 1 live</span> &nbsp;·&nbsp; <span>1 in build</span>
       </div>
     </div>
@@ -459,7 +461,7 @@
             </div>
             <div style="margin-top:auto;">
               <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px;">Education / EdTech</div>
-              <div style="font-size:52px; font-weight:800; line-height:0.95; letter-spacing:-0.035em;">Tutor Grade<br>Consultancy<span style="color:#EF3B37;">.</span></div>
+              <div style="font-size: clamp(24px, 4vw, 52px); font-weight:800; line-height:0.95; letter-spacing:-0.035em;">Tutor Grade<br>Consultancy<span style="color:#EF3B37;">.</span></div>
               <div style="font-size:13px; color:rgba(255,255,255,0.6); max-width:440px; line-height:1.55; margin-top:16px;">
                 A consultancy website paired with a dedicated online course platform — student accounts, enrolment, and learning resources in one environment.
               </div>
@@ -473,9 +475,9 @@
         <div style="display:flex; justify-content:space-between; align-items:flex-end;">
           <div>
             <div style="font-size:26px; font-weight:700; letter-spacing:-0.02em;">Tutor Grade Consultancy</div>
-            <div style="font-size:13px; color:#666; margin-top:4px;">tutorgradeconsultancy.co.uk &nbsp;·&nbsp; courses.tutorgradeconsultancy.co.uk</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.5); margin-top:4px;">tutorgradeconsultancy.co.uk &nbsp;·&nbsp; courses.tutorgradeconsultancy.co.uk</div>
           </div>
-          <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; padding-bottom:4px; border-bottom:1.5px solid #141414;">
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; padding-bottom:4px; border-bottom:1.5px solid rgba(255,255,255,0.15);">
             View Project <span class="cv-arrow">→</span>
           </div>
         </div>
@@ -484,31 +486,31 @@
 
       <!-- PROJECT 02 — PAPERMAKER (coming soon) -->
       <div>
-        <div class="cv-proj cv-reveal-scale" style="--cv-delay:120ms; background:#f4f2ea; border:1px solid rgba(20,20,20,0.08); border-radius:14px; aspect-ratio: 4/3; position:relative; overflow:hidden; margin-bottom:20px;">
+        <div class="cv-proj cv-reveal-scale" style="--cv-delay:120ms; background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:14px; aspect-ratio: 4/3; position:relative; overflow:hidden; margin-bottom:20px;">
           <!-- diagonal stripe pattern -->
-          <div style="position:absolute; inset:0; background-image: repeating-linear-gradient(45deg, transparent 0 18px, rgba(20,20,20,0.03) 18px 19px); pointer-events:none;"></div>
+          <div style="position:absolute; inset:0; background-image: repeating-linear-gradient(45deg, transparent 0 18px, rgba(255,255,255,0.03) 18px 19px); pointer-events:none;"></div>
           <div style="position:absolute; inset:0; padding:32px; display:flex; flex-direction:column;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-              <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:#141414; border-radius:100px;">
+              <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; background:#111; border-radius:100px;">
                 <span style="width:6px; height:6px; background:#EF3B37; border-radius:50%;"></span>
                 <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#FDFCF7;">COMING SOON</span>
               </div>
-              <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#999; letter-spacing:0.15em; text-transform:uppercase;">◆ 02 / PPR</div>
+              <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.4); letter-spacing:0.15em; text-transform:uppercase;">◆ 02 / PPR</div>
             </div>
 
             <div style="margin-top:auto;">
-              <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#999; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px;">Education / Digital Platform</div>
-              <div style="font-size:44px; font-weight:800; line-height:0.95; letter-spacing:-0.035em; color:#141414;">Papermaker<span style="color:#EF3B37;">.</span></div>
-              <div style="font-size:13px; color:#3a3a3a; line-height:1.55; margin-top:14px; max-width:320px;">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.4); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px;">Education / Digital Platform</div>
+              <div style="font-size: clamp(22px, 3.5vw, 44px); font-weight:800; line-height:0.95; letter-spacing:-0.035em; color:#FDFCF7;">Papermaker<span style="color:#EF3B37;">.</span></div>
+              <div style="font-size:13px; color:rgba(255,255,255,0.7); line-height:1.55; margin-top:14px; max-width:320px;">
                 A digital platform currently in development at Cvit Solutions. More detail as it ships.
               </div>
               <!-- build status bar -->
               <div style="margin-top:20px;">
-                <div style="display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:10px; color:#999; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">
+                <div style="display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">
                   <span>In build</span>
                   <span>ETA · TBA</span>
                 </div>
-                <div style="height:2px; background:rgba(20,20,20,0.1); position:relative; overflow:hidden;">
+                <div style="height:2px; background:rgba(255,255,255,0.08); position:relative; overflow:hidden;">
                   <div style="position:absolute; left:0; top:0; height:100%; width:38%; background:#EF3B37;"></div>
                 </div>
               </div>
@@ -518,9 +520,9 @@
         <div style="display:flex; justify-content:space-between; align-items:flex-end;">
           <div>
             <div style="font-size:22px; font-weight:700; letter-spacing:-0.02em;">Papermaker</div>
-            <div style="font-size:13px; color:#666; margin-top:4px;">Education / Digital Platform</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.5); margin-top:4px;">Education / Digital Platform</div>
           </div>
-          <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:#999; padding-bottom:4px; border-bottom:1.5px solid rgba(20,20,20,0.2);">
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); padding-bottom:4px; border-bottom:1.5px solid rgba(20,20,20,0.2);">
             Coming Soon
           </div>
         </div>
@@ -532,44 +534,44 @@
   <section style="max-width:1440px; margin:0 auto; padding:80px 56px 140px;">
     <div style="display:grid; grid-template-columns: 380px 1fr; gap:80px;">
       <div style="position:sticky; top:120px; align-self:start;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">◆ 005 / Why Cvit</div>
-        <h2 style="margin:0 0 24px; font-size:56px; line-height:1; font-weight:800; letter-spacing:-0.035em;">Four reasons<br>teams choose us<span style="color:#EF3B37;">.</span></h2>
-        <p style="font-size:14px; line-height:1.7; color:#666;">Cvit isn't the cheapest studio you'll talk to. We are, however, the last one you'll need to hire on a given product.</p>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">◆ 005 / Why Cvit</div>
+        <h2 style="margin:0 0 24px; font-size: clamp(24px, 4.5vw, 56px); line-height:1; font-weight:800; letter-spacing:-0.035em;">Four reasons<br>teams choose us<span style="color:#EF3B37;">.</span></h2>
+        <p style="font-size:14px; line-height:1.7; color:rgba(255,255,255,0.5);">Cvit isn't the cheapest studio you'll talk to. We are, however, the last one you'll need to hire on a given product.</p>
       </div>
       <div>
-        <div class="cv-reveal" style="--cv-delay:0ms; border-top:1px solid #141414; padding:32px 0; border-bottom:1px solid rgba(20,20,20,0.15);">
+        <div class="cv-reveal" style="--cv-delay:0ms; border-top:1px solid rgba(255,255,255,0.15); padding:32px 0; border-bottom:1px solid rgba(255,255,255,0.1);">
           <div style="display:flex; gap:24px; align-items:baseline;">
-            <div style="font-size:80px; font-weight:800; letter-spacing:-0.05em; line-height:0.9; color:#EF3B37;">01</div>
+            <div style="font-size: clamp(28px, 6vw, 80px); font-weight:800; letter-spacing:-0.05em; line-height:0.9; color:#EF3B37;">01</div>
             <div>
-              <div style="font-size:28px; font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Practical digital solutions.</div>
-              <p style="font-size:15px; line-height:1.6; color:#3a3a3a; margin:0; max-width:560px;">We focus on building solutions around real business needs and objectives.</p>
+              <div style="font-size: clamp(18px, 2.2vw, 28px); font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Practical digital solutions.</div>
+              <p style="font-size:15px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0; max-width:560px;">We focus on building solutions around real business needs and objectives.</p>
             </div>
           </div>
         </div>
-        <div class="cv-reveal" style="--cv-delay:80ms; padding:32px 0; border-bottom:1px solid rgba(20,20,20,0.15);">
+        <div class="cv-reveal" style="--cv-delay:80ms; padding:32px 0; border-bottom:1px solid rgba(255,255,255,0.1);">
           <div style="display:flex; gap:24px; align-items:baseline;">
-            <div style="font-size:80px; font-weight:800; letter-spacing:-0.05em; line-height:0.9;">02</div>
+            <div style="font-size: clamp(28px, 6vw, 80px); font-weight:800; letter-spacing:-0.05em; line-height:0.9;">02</div>
             <div>
-              <div style="font-size:28px; font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Design &amp; development.</div>
-              <p style="font-size:15px; line-height:1.6; color:#3a3a3a; margin:0; max-width:560px;">We combine thoughtful design with reliable web development.</p>
+              <div style="font-size: clamp(18px, 2.2vw, 28px); font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Design &amp; development.</div>
+              <p style="font-size:15px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0; max-width:560px;">We combine thoughtful design with reliable web development.</p>
             </div>
           </div>
         </div>
-        <div class="cv-reveal" style="--cv-delay:160ms; padding:32px 0; border-bottom:1px solid rgba(20,20,20,0.15);">
+        <div class="cv-reveal" style="--cv-delay:160ms; padding:32px 0; border-bottom:1px solid rgba(255,255,255,0.1);">
           <div style="display:flex; gap:24px; align-items:baseline;">
-            <div style="font-size:80px; font-weight:800; letter-spacing:-0.05em; line-height:0.9;">03</div>
+            <div style="font-size: clamp(28px, 6vw, 80px); font-weight:800; letter-spacing:-0.05em; line-height:0.9;">03</div>
             <div>
-              <div style="font-size:28px; font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Flexible collaboration.</div>
-              <p style="font-size:15px; line-height:1.6; color:#3a3a3a; margin:0; max-width:560px;">We work closely with clients throughout the project, from idea to launch.</p>
+              <div style="font-size: clamp(18px, 2.2vw, 28px); font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Flexible collaboration.</div>
+              <p style="font-size:15px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0; max-width:560px;">We work closely with clients throughout the project, from idea to launch.</p>
             </div>
           </div>
         </div>
         <div class="cv-reveal" style="--cv-delay:240ms; padding:32px 0;">
           <div style="display:flex; gap:24px; align-items:baseline;">
-            <div style="font-size:80px; font-weight:800; letter-spacing:-0.05em; line-height:0.9;">04</div>
+            <div style="font-size: clamp(28px, 6vw, 80px); font-weight:800; letter-spacing:-0.05em; line-height:0.9;">04</div>
             <div>
-              <div style="font-size:28px; font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Built for growth.</div>
-              <p style="font-size:15px; line-height:1.6; color:#3a3a3a; margin:0; max-width:560px;">We create digital solutions that can evolve as your business grows.</p>
+              <div style="font-size: clamp(18px, 2.2vw, 28px); font-weight:700; letter-spacing:-0.02em; margin-bottom:12px;">Built for growth.</div>
+              <p style="font-size:15px; line-height:1.6; color:rgba(255,255,255,0.7); margin:0; max-width:560px;">We create digital solutions that can evolve as your business grows.</p>
             </div>
           </div>
         </div>
@@ -578,47 +580,47 @@
   </section>
 
   <!-- PROCESS -->
-  <section style="background:#f4f2ea; padding:140px 0; border-top:1px solid rgba(20,20,20,0.08); border-bottom:1px solid rgba(20,20,20,0.08);">
+  <section style="background:#141414; padding:140px 0; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
     <div style="max-width:1440px; margin:0 auto; padding:0 56px;">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:80px;">
         <div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">◆ 006 / Process</div>
-          <h2 style="margin:0; font-size:64px; line-height:1; font-weight:800; letter-spacing:-0.035em; max-width:720px;">A calm, deliberate way of working<span style="color:#EF3B37;">.</span></h2>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">◆ 006 / Process</div>
+          <h2 style="margin:0; font-size: clamp(26px, 5vw, 64px); line-height:1; font-weight:800; letter-spacing:-0.035em; max-width:720px;">A calm, deliberate way of working<span style="color:#EF3B37;">.</span></h2>
         </div>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#666; letter-spacing:0.05em;">6 – 14 WEEK CYCLES</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,0.5); letter-spacing:0.05em;">6 – 14 WEEK CYCLES</div>
       </div>
       <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:24px; position:relative;">
-        <div style="position:absolute; top:24px; left:5%; right:5%; height:1px; background:rgba(20,20,20,0.15);"></div>
+        <div style="position:absolute; top:24px; left:5%; right:5%; height:1px; background:rgba(255,255,255,0.1);"></div>
         <div style="position:absolute; top:19px; left:5%; width:20%; height:11px; background:linear-gradient(90deg,#EF3B37, transparent);"></div>
         <div class="cv-step cv-reveal" style="--cv-delay:0ms;">
-          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#141414; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">01</div>
-          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:#999; letter-spacing:0.1em; margin-top:20px;">WEEK 1</div>
+          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#1a1a1a; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">01</div>
+          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:rgba(255,255,255,0.4); letter-spacing:0.1em; margin-top:20px;">WEEK 1</div>
           <div style="font-size:19px; font-weight:700; letter-spacing:-0.02em; margin-top:6px;" class="cv-step-title">Sharpen</div>
-          <p style="font-size:13px; line-height:1.55; color:#666; margin-top:8px;">Working sessions to pressure-test the brief and lock the scope worth shipping.</p>
+          <p style="font-size:13px; line-height:1.55; color:rgba(255,255,255,0.5); margin-top:8px;">Working sessions to pressure-test the brief and lock the scope worth shipping.</p>
         </div>
         <div class="cv-step cv-reveal" style="--cv-delay:80ms;">
-          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#141414; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">02</div>
-          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:#999; letter-spacing:0.1em; margin-top:20px;">WEEK 2 – 4</div>
+          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#1a1a1a; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">02</div>
+          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:rgba(255,255,255,0.4); letter-spacing:0.1em; margin-top:20px;">WEEK 2 – 4</div>
           <div style="font-size:19px; font-weight:700; letter-spacing:-0.02em; margin-top:6px;" class="cv-step-title">Prototype</div>
-          <p style="font-size:13px; line-height:1.55; color:#666; margin-top:8px;">Interfaces built in real code against real data — no static mockup theatre.</p>
+          <p style="font-size:13px; line-height:1.55; color:rgba(255,255,255,0.5); margin-top:8px;">Interfaces built in real code against real data — no static mockup theatre.</p>
         </div>
         <div class="cv-step cv-reveal" style="--cv-delay:160ms;">
           <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#EF3B37; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">03</div>
           <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:#EF3B37; letter-spacing:0.1em; margin-top:20px;">WEEK 4 – 10</div>
           <div style="font-size:19px; font-weight:700; letter-spacing:-0.02em; margin-top:6px;" class="cv-step-title">Build</div>
-          <p style="font-size:13px; line-height:1.55; color:#666; margin-top:8px;">One integrated squad. Weekly demos. Every ship candidate is a real candidate.</p>
+          <p style="font-size:13px; line-height:1.55; color:rgba(255,255,255,0.5); margin-top:8px;">One integrated squad. Weekly demos. Every ship candidate is a real candidate.</p>
         </div>
         <div class="cv-step cv-reveal" style="--cv-delay:240ms;">
-          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#141414; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">04</div>
-          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:#999; letter-spacing:0.1em; margin-top:20px;">WEEK 10 – 12</div>
+          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#1a1a1a; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">04</div>
+          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:rgba(255,255,255,0.4); letter-spacing:0.1em; margin-top:20px;">WEEK 10 – 12</div>
           <div style="font-size:19px; font-weight:700; letter-spacing:-0.02em; margin-top:6px;" class="cv-step-title">Launch</div>
-          <p style="font-size:13px; line-height:1.55; color:#666; margin-top:8px;">Observability, docs, a runbook, and a team ready to take over the codebase.</p>
+          <p style="font-size:13px; line-height:1.55; color:rgba(255,255,255,0.5); margin-top:8px;">Observability, docs, a runbook, and a team ready to take over the codebase.</p>
         </div>
         <div class="cv-step cv-reveal" style="--cv-delay:320ms;">
-          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#141414; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">05</div>
-          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:#999; letter-spacing:0.1em; margin-top:20px;">ONGOING</div>
+          <div class="cv-step-node" style="width:48px; height:48px; border-radius:50%; background:#1a1a1a; color:#FDFCF7; display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; position:relative; z-index:1;">05</div>
+          <div style="font-size:11px; font-family:'JetBrains Mono',monospace; color:rgba(255,255,255,0.4); letter-spacing:0.1em; margin-top:20px;">ONGOING</div>
           <div style="font-size:19px; font-weight:700; letter-spacing:-0.02em; margin-top:6px;" class="cv-step-title">Steward</div>
-          <p style="font-size:13px; line-height:1.55; color:#666; margin-top:8px;">Optional retainer to keep evolving the product with the same people who built it.</p>
+          <p style="font-size:13px; line-height:1.55; color:rgba(255,255,255,0.5); margin-top:8px;">Optional retainer to keep evolving the product with the same people who built it.</p>
         </div>
       </div>
     </div>
@@ -628,27 +630,27 @@
   <section style="max-width:1440px; margin:0 auto; padding:140px 56px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px;">
       <div>
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">◆ 007 / Trust</div>
-        <h2 style="margin:0; font-size:64px; line-height:1; font-weight:800; letter-spacing:-0.035em; max-width:820px;">What the teams<br>we work with <span style="font-style:italic; font-weight:500;">actually</span> say<span style="color:#EF3B37;">.</span></h2>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">◆ 007 / Trust</div>
+        <h2 style="margin:0; font-size: clamp(26px, 5vw, 64px); line-height:1; font-weight:800; letter-spacing:-0.035em; max-width:820px;">What the teams<br>we work with <span style="font-style:italic; font-weight:500;">actually</span> say<span style="color:#EF3B37;">.</span></h2>
       </div>
     </div>
     <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:32px;">
-      <div class="cv-test cv-reveal" style="border:1px solid rgba(20,20,20,0.15); border-radius:14px; padding:48px; background:#FDFCF7;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#999; text-transform:uppercase; margin-bottom:24px;">◆ Testimonial 01 · EduPath</div>
+      <div class="cv-test cv-reveal" style="border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:48px; background:#0a0a0a;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:24px;">◆ Testimonial 01 · EduPath</div>
         <div style="font-family:'Montserrat'; font-size:30px; line-height:1.35; font-weight:500; letter-spacing:-0.015em; margin-bottom:40px;">
-          <span style="color:#EF3B37; font-size:44px; line-height:0; position:relative; top:8px;">"</span>Highly recommend anyone interested in elevating their brand to connect with Cvit Solutions today! They did an amazing job for EduPath Ltd, delivering results beyond expectations.<span style="color:#EF3B37;">"</span>
+          <span style="color:#EF3B37; font-size: clamp(22px, 3.5vw, 44px); line-height:0; position:relative; top:8px;">"</span>Highly recommend anyone interested in elevating their brand to connect with Cvit Solutions today! They did an amazing job for EduPath Ltd, delivering results beyond expectations.<span style="color:#EF3B37;">"</span>
         </div>
-        <div style="display:flex; align-items:center; gap:16px; padding-top:24px; border-top:1px solid rgba(20,20,20,0.1);">
-          <div style="width:48px; height:48px; background:#141414; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#FDFCF7; font-weight:700; font-size:14px; letter-spacing:0.02em;">ND</div>
+        <div style="display:flex; align-items:center; gap:16px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
+          <div style="width:48px; height:48px; background:#111; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#FDFCF7; font-weight:700; font-size:14px; letter-spacing:0.02em;">ND</div>
           <div>
             <div style="font-size:15px; font-weight:700;">E. K. Nilan Duminda</div>
-            <div style="font-size:13px; color:#666;">Director · EduPath Ltd</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.5);">Director · EduPath Ltd</div>
           </div>
-          <div style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; color:#999; letter-spacing:0.1em;">01 / 02</div>
+          <div style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.4); letter-spacing:0.1em;">01 / 02</div>
         </div>
       </div>
 
-      <div class="cv-test cv-reveal" style="--cv-delay:120ms; border:1px solid rgba(20,20,20,0.15); border-radius:14px; padding:36px; background:#141414; color:#FDFCF7; display:flex; flex-direction:column;">
+      <div class="cv-test cv-reveal" style="--cv-delay:120ms; border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:36px; background:#111; color:#FDFCF7; display:flex; flex-direction:column;">
         <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.5); text-transform:uppercase; margin-bottom:20px;">◆ Testimonial 02 · D Lewis</div>
         <div style="font-size:19px; line-height:1.45; font-weight:500; letter-spacing:-0.01em; margin-bottom:auto;">
           <span style="color:#EF3B37;">"</span>Really happy with the site Cvit Solutions made for LearningMathsWithDuet.com! Looks great, easy to use, and just what I wanted. Team was super helpful and quick. Highly recommend!<span style="color:#EF3B37;">"</span>
@@ -667,14 +669,14 @@
 
   <!-- FINAL CTA -->
   <section style="padding:0 56px 56px;">
-    <div class="cv-reveal-scale" style="max-width:1440px; margin:0 auto; background:#141414; color:#FDFCF7; border-radius:20px; overflow:hidden; position:relative; padding:120px 72px;">
+    <div class="cv-reveal-scale" style="max-width:1440px; margin:0 auto; background:#111; color:#FDFCF7; border-radius:20px; overflow:hidden; position:relative; padding:120px 72px;">
       <div style="position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 28px 28px; opacity:0.7;"></div>
       <div style="position:absolute; right:-100px; top:50%; transform:translateY(-50%); width:600px; height:600px; border:1px solid rgba(239,59,55,0.25); border-radius:50%;"></div>
       <div style="position:absolute; right:40px; top:50%; transform:translateY(-50%); width:360px; height:360px; border:1px solid rgba(239,59,55,0.35); border-radius:50%;"></div>
       <div style="position:absolute; right:130px; top:50%; transform:translateY(-50%); width:180px; height:180px; background:radial-gradient(circle, rgba(239,59,55,0.6), transparent 65%);"></div>
       <div style="position:relative; max-width:820px;">
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.5); text-transform:uppercase; margin-bottom:24px;">◆ 008 / Let's talk</div>
-        <div style="font-size:104px; line-height:0.92; font-weight:800; letter-spacing:-0.045em; margin-bottom:32px;">
+        <div style="font-size: clamp(36px, 8vw, 104px); line-height:0.92; font-weight:800; letter-spacing:-0.045em; margin-bottom:32px;">
           Have something<br>worth building<span style="color:#EF3B37;">?</span>
         </div>
         <p style="font-size:17px; line-height:1.6; color:rgba(255,255,255,0.7); max-width:520px; margin:0 0 40px;">
@@ -682,7 +684,7 @@
         </p>
         <div style="display:flex; align-items:center; gap:16px;">
           <a href="#" class="cv-btn cv-btn-primary" style="background:#EF3B37; color:#FDFCF7; padding:18px 32px; border-radius:100px; font-size:15px; font-weight:600; display:inline-flex; align-items:center; gap:12px;">
-            <span style="width:8px; height:8px; border-radius:50%; background:#FDFCF7;"></span>
+            <span style="width:8px; height:8px; border-radius:50%; background:#0a0a0a;"></span>
             Start a Project
           </a>
           <a href="mailto:hello@cvit.solutions" class="cv-btn" style="color:#FDFCF7; padding:18px 24px; font-size:15px; font-weight:600; display:inline-flex; align-items:center; gap:12px; border:1.5px solid rgba(255,255,255,0.2); border-radius:100px;">hello@cvit.solutions</a>
@@ -692,7 +694,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer style="border-top:1px solid rgba(20,20,20,0.08); padding:56px 56px 40px;">
+  <footer style="border-top:1px solid rgba(255,255,255,0.06); padding:56px 56px 40px;">
     <div style="max-width:1440px; margin:0 auto;">
       <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px;">
         <div>
@@ -722,13 +724,13 @@
         </div>
         <div>
           
-          <div style="font-size:13px; line-height:1.7; color:#3a3a3a;">
+          <div style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.7);">
             210 W Kinzie St<br>Chicago, IL 60654<br><br>
             <a class="cv-foot-link" href="mailto:hello@cvit.solutions">hello@cvit.solutions</a>
           </div>
         </div>
       </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:32px; border-top:1px solid rgba(20,20,20,0.08); font-family:'JetBrains Mono',monospace; font-size:11px; color:#999; letter-spacing:0.05em;">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.05em;">
         <div>© 2026 Cvit Solutions LLC. All rights reserved.</div>
         <div style="display:flex; gap:24px;">
           <a class="cv-foot-link" href="#">Privacy</a><a class="cv-foot-link" href="#">Terms</a><a class="cv-foot-link" href="#">Colophon</a>

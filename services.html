@@ -12,15 +12,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  body { margin:0; font-family:'Montserrat',sans-serif; background:#FDFCF7; color:#141414; -webkit-font-smoothing:antialiased; }
-  a { color:#141414; text-decoration:none; transition: color .3s ease; }
+  body { margin:0; font-family:'Montserrat',sans-serif; background:#0a0a0a; color:#FDFCF7; -webkit-font-smoothing:antialiased; }
+  a { color:#FDFCF7; text-decoration:none; transition: color .3s ease; }
   a:hover { color:#EF3B37; }
   ::selection { background:#EF3B37; color:#FDFCF7; }
   :root { --ease: cubic-bezier(.22,.61,.36,1); }
   .cv-reveal { opacity:0; transform:translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--cv-delay,0ms); }
   .cv-reveal.is-in { opacity:1; transform:none; }
   .cv-nav { transition: padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease); }
-  .cv-nav.is-compact { background: rgba(253,252,247,0.94) !important; box-shadow: 0 1px 0 rgba(20,20,20,0.06), 0 8px 24px rgba(20,20,20,0.04); }
+  .cv-nav.is-compact { background: rgba(10,10,10,0.94) !important; box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 8px 24px rgba(0,0,0,0.4); }
   .cv-nav-link { position:relative; }
   .cv-nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:#EF3B37; transform:scaleX(0); transform-origin:left; transition:transform .35s var(--ease); }
   .cv-nav-link:hover::after { transform:scaleX(1); }
@@ -30,7 +30,7 @@
   .cv-btn-ghost:hover { border-color:#EF3B37 !important; color:#EF3B37; }
   .cv-progress { position:fixed; top:0; left:0; height:2px; width:0%; background:#EF3B37; z-index:100; transition:width .12s linear; box-shadow: 0 0 12px rgba(239,59,55,0.5); }
   .cv-svc { transition: background .4s var(--ease); }
-  .cv-svc:hover { background: rgba(20,20,20,0.02); }
+  .cv-svc:hover { background: rgba(255,255,255,0.03); }
   .cv-svc .cv-svc-title { transition: transform .5s var(--ease); display:inline-block; }
   .cv-svc:hover .cv-svc-title { transform: translateX(10px); }
   footer .cv-foot-link { position:relative; display:inline-block; }
@@ -39,24 +39,26 @@
   @media (prefers-reduced-motion: reduce) { .cv-reveal { opacity:1 !important; transform:none !important; } }
 </style>
 <script src="./cvit-motion.js"></script>
+<link rel="stylesheet" href="./responsive.css">
+<script src="./mobile-nav.js"></script>
 </helmet>
 
-<div style="width:100%; min-width:1280px; background:#FDFCF7; color:#141414;">
+<div style="width:100%; background:#0a0a0a; color:#FDFCF7;">
   <div class="cv-progress"></div>
 
   <!-- NAV -->
-  <nav class="cv-nav" style="position:sticky; top:0; z-index:50; background:rgba(253,252,247,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(20,20,20,0.06);">
+  <nav class="cv-nav" style="position:sticky; top:0; z-index:50; background:rgba(10,10,10,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06);">
     <div class="cv-nav-inner" style="max-width:1440px; margin:0 auto; padding:20px 56px; display:flex; align-items:center; justify-content:space-between;">
       <a href="./" style="display:flex; align-items:center; gap:10px;">
         <img src="./cvit-logo.svg" alt="Cvit Solutions" style="height:28px; display:block;">
-        <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:#666;">.Solutions</div>
+        <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:rgba(255,255,255,0.5);">.Solutions</div>
       </a>
       <div style="display:flex; align-items:center; gap:44px; font-size:14px; font-weight:500;">
-        <a href="./" class="cv-nav-link" style="color:#666;">Home</a>
-        <a href="#" class="cv-nav-link" style="color:#141414;">Services</a>
-        <a href="./about.html" class="cv-nav-link" style="color:#666;">About</a>
-        <a href="./projects.html" class="cv-nav-link" style="color:#666;">Projects</a>
-        <a href="./contact.html" class="cv-nav-link" style="color:#666;">Contact</a>
+        <a href="./" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Home</a>
+        <a href="#" class="cv-nav-link" style="color:#FDFCF7;">Services</a>
+        <a href="./about.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">About</a>
+        <a href="./projects.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Projects</a>
+        <a href="./contact.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Contact</a>
       </div>
       <a href="./contact.html" class="cv-btn cv-btn-primary" style="background:#EF3B37; color:#FDFCF7; padding:12px 22px; border-radius:100px; font-size:13px; font-weight:600; display:inline-flex; align-items:center; gap:8px;">Start a Project →</a>
     </div>
@@ -64,32 +66,32 @@
 
   <!-- HERO -->
   <section style="max-width:1440px; margin:0 auto; padding:80px 56px 60px;">
-    <div class="cv-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase;">
+    <div class="cv-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase;">
       <span>◆ Services / Overview</span>
       <span>Four disciplines · one studio</span>
     </div>
-    <h1 class="cv-reveal" style="margin:0 0 32px; font-size:104px; line-height:0.92; font-weight:800; letter-spacing:-0.045em; max-width:1200px;">
+    <h1 class="cv-reveal" style="margin:0 0 32px; font-size: clamp(36px, 8vw, 104px); line-height:0.92; font-weight:800; letter-spacing:-0.045em; max-width:1200px;">
       What we<br>build for<br><span style="font-style:italic; font-weight:500;">the people we work with</span><span style="color:#EF3B37;">.</span>
     </h1>
-    <p class="cv-reveal" style="font-size:18px; line-height:1.6; color:#3a3a3a; max-width:600px; margin:0;">
+    <p class="cv-reveal" style="font-size:18px; line-height:1.6; color:rgba(255,255,255,0.7); max-width:600px; margin:0;">
       Every engagement pulls from these capabilities. We focus on solutions built around real business needs — thoughtful design, reliable development, and honest collaboration from idea to launch.
     </p>
   </section>
 
   <!-- SERVICES DETAIL -->
   <section style="max-width:1440px; margin:0 auto; padding:60px 56px 120px;">
-    <div style="border-top:1px solid #141414;">
-      <div class="cv-svc cv-reveal" style="display:grid; grid-template-columns: 120px 1.2fr 1.8fr; gap:56px; padding:56px 24px; border-bottom:1px solid rgba(20,20,20,0.15); align-items:start;">
+    <div style="border-top:1px solid rgba(255,255,255,0.15);">
+      <div class="cv-svc cv-reveal" style="display:grid; grid-template-columns: 120px 1.2fr 1.8fr; gap:56px; padding:56px 24px; border-bottom:1px solid rgba(255,255,255,0.1); align-items:start;">
         <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#EF3B37; letter-spacing:0.1em;">/ 01</div>
         <div>
-          <div class="cv-svc-title" style="font-size:44px; font-weight:800; letter-spacing:-0.03em; line-height:1;">Web<br>design<span style="color:#EF3B37;">.</span></div>
-          <p style="font-size:14px; line-height:1.6; color:#666; margin-top:20px; max-width:340px;">Interfaces and brand-integrated visual systems built around how the product actually gets used.</p>
+          <div class="cv-svc-title" style="font-size: clamp(22px, 3.5vw, 44px); font-weight:800; letter-spacing:-0.03em; line-height:1;">Web<br>design<span style="color:#EF3B37;">.</span></div>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.5); margin-top:20px; max-width:340px;">Interfaces and brand-integrated visual systems built around how the product actually gets used.</p>
         </div>
         <div>
-          <p style="font-size:17px; line-height:1.55; color:#141414; margin:0 0 28px; max-width:640px;">
+          <p style="font-size:17px; line-height:1.55; color:#FDFCF7; margin:0 0 28px; max-width:640px;">
             We design consultancy sites, product interfaces, and customer-facing platforms — starting from the audience and content, not a template. Layout, typography, and interaction are all part of the same craft.
           </p>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:#3a3a3a; max-width:520px;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:rgba(255,255,255,0.7); max-width:520px;">
             <div>— Marketing sites</div>
             <div>— Interface systems</div>
             <div>— Brand-integrated visual language</div>
@@ -100,17 +102,17 @@
         </div>
       </div>
 
-      <div class="cv-svc cv-reveal" style="--cv-delay:80ms; display:grid; grid-template-columns: 120px 1.2fr 1.8fr; gap:56px; padding:56px 24px; border-bottom:1px solid rgba(20,20,20,0.15); align-items:start;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#999; letter-spacing:0.1em;">/ 02</div>
+      <div class="cv-svc cv-reveal" style="--cv-delay:80ms; display:grid; grid-template-columns: 120px 1.2fr 1.8fr; gap:56px; padding:56px 24px; border-bottom:1px solid rgba(255,255,255,0.1); align-items:start;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,0.4); letter-spacing:0.1em;">/ 02</div>
         <div>
-          <div class="cv-svc-title" style="font-size:44px; font-weight:800; letter-spacing:-0.03em; line-height:1;">Web<br>development<span style="color:#EF3B37;">.</span></div>
-          <p style="font-size:14px; line-height:1.6; color:#666; margin-top:20px; max-width:340px;">Reliable, maintainable web development that stays useful long after launch.</p>
+          <div class="cv-svc-title" style="font-size: clamp(22px, 3.5vw, 44px); font-weight:800; letter-spacing:-0.03em; line-height:1;">Web<br>development<span style="color:#EF3B37;">.</span></div>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.5); margin-top:20px; max-width:340px;">Reliable, maintainable web development that stays useful long after launch.</p>
         </div>
         <div>
-          <p style="font-size:17px; line-height:1.55; color:#141414; margin:0 0 28px; max-width:640px;">
+          <p style="font-size:17px; line-height:1.55; color:#FDFCF7; margin:0 0 28px; max-width:640px;">
             We build the sites and platforms we design. Static marketing sites, dynamic content platforms, dashboards, admin tools, and integrations — engineered so the client's team can extend the work themselves later.
           </p>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:#3a3a3a; max-width:520px;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:rgba(255,255,255,0.7); max-width:520px;">
             <div>— Business websites</div>
             <div>— Content platforms</div>
             <div>— Course &amp; learning platforms</div>
@@ -121,17 +123,17 @@
         </div>
       </div>
 
-      <div class="cv-svc cv-reveal" style="--cv-delay:160ms; display:grid; grid-template-columns: 120px 1.2fr 1.8fr; gap:56px; padding:56px 24px; border-bottom:1px solid rgba(20,20,20,0.15); align-items:start;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#999; letter-spacing:0.1em;">/ 03</div>
+      <div class="cv-svc cv-reveal" style="--cv-delay:160ms; display:grid; grid-template-columns: 120px 1.2fr 1.8fr; gap:56px; padding:56px 24px; border-bottom:1px solid rgba(255,255,255,0.1); align-items:start;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,0.4); letter-spacing:0.1em;">/ 03</div>
         <div>
-          <div class="cv-svc-title" style="font-size:44px; font-weight:800; letter-spacing:-0.03em; line-height:1;">Digital<br>platforms<span style="color:#EF3B37;">.</span></div>
-          <p style="font-size:14px; line-height:1.6; color:#666; margin-top:20px; max-width:340px;">Purpose-built platforms for teaching, selling, or operating — designed and shipped end-to-end.</p>
+          <div class="cv-svc-title" style="font-size: clamp(22px, 3.5vw, 44px); font-weight:800; letter-spacing:-0.03em; line-height:1;">Digital<br>platforms<span style="color:#EF3B37;">.</span></div>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.5); margin-top:20px; max-width:340px;">Purpose-built platforms for teaching, selling, or operating — designed and shipped end-to-end.</p>
         </div>
         <div>
-          <p style="font-size:17px; line-height:1.55; color:#141414; margin:0 0 28px; max-width:640px;">
+          <p style="font-size:17px; line-height:1.55; color:#FDFCF7; margin:0 0 28px; max-width:640px;">
             When a marketing site is not enough, we build the platform underneath: student accounts, enrolment, course delivery, member areas, orders, and the everyday operations tools that keep them running.
           </p>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:#3a3a3a; max-width:520px;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:rgba(255,255,255,0.7); max-width:520px;">
             <div>— Online learning platforms</div>
             <div>— Student &amp; member systems</div>
             <div>— Enrolment &amp; sign-up flows</div>
@@ -143,16 +145,16 @@
       </div>
 
       <div class="cv-svc cv-reveal" style="--cv-delay:240ms; display:grid; grid-template-columns: 120px 1.2fr 1.8fr; gap:56px; padding:56px 24px; align-items:start;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#999; letter-spacing:0.1em;">/ 04</div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,0.4); letter-spacing:0.1em;">/ 04</div>
         <div>
-          <div class="cv-svc-title" style="font-size:44px; font-weight:800; letter-spacing:-0.03em; line-height:1;">Brand &amp;<br>identity<span style="color:#EF3B37;">.</span></div>
-          <p style="font-size:14px; line-height:1.6; color:#666; margin-top:20px; max-width:340px;">Names, marks, and visual systems that carry across every touchpoint we ship.</p>
+          <div class="cv-svc-title" style="font-size: clamp(22px, 3.5vw, 44px); font-weight:800; letter-spacing:-0.03em; line-height:1;">Brand &amp;<br>identity<span style="color:#EF3B37;">.</span></div>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.5); margin-top:20px; max-width:340px;">Names, marks, and visual systems that carry across every touchpoint we ship.</p>
         </div>
         <div>
-          <p style="font-size:17px; line-height:1.55; color:#141414; margin:0 0 28px; max-width:640px;">
+          <p style="font-size:17px; line-height:1.55; color:#FDFCF7; margin:0 0 28px; max-width:640px;">
             When a project needs a fresh identity or a tidy-up of an existing one, we handle that in-house so the brand, site, and product feel like one coherent thing.
           </p>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:#3a3a3a; max-width:520px;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px 32px; font-size:14px; color:rgba(255,255,255,0.7); max-width:520px;">
             <div>— Logo &amp; wordmark</div>
             <div>— Colour &amp; typography</div>
             <div>— Brand guidelines</div>
@@ -164,13 +166,13 @@
   </section>
 
   <!-- HOW WE ENGAGE -->
-  <section style="background:#141414; color:#FDFCF7; padding:120px 56px; position:relative; overflow:hidden;">
+  <section style="background:#111; color:#FDFCF7; padding:120px 56px; position:relative; overflow:hidden;">
     <div style="position:absolute; inset:0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size:64px 64px;"></div>
     <div style="max-width:1440px; margin:0 auto; position:relative;">
       <div class="cv-reveal" style="display:grid; grid-template-columns: 1fr 1.6fr; gap:80px; align-items:start;">
         <div>
           <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.5); text-transform:uppercase; margin-bottom:16px;">◆ How we engage</div>
-          <h2 style="margin:0; font-size:56px; line-height:1; font-weight:800; letter-spacing:-0.035em;">Three ways<br>to work with us<span style="color:#EF3B37;">.</span></h2>
+          <h2 style="margin:0; font-size: clamp(24px, 4.5vw, 56px); line-height:1; font-weight:800; letter-spacing:-0.035em;">Three ways<br>to work with us<span style="color:#EF3B37;">.</span></h2>
         </div>
         <div style="display:flex; flex-direction:column; gap:24px;">
           <div style="border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:28px 32px;">
@@ -195,38 +197,38 @@
 
   <!-- CTA -->
   <section style="padding:56px 56px;">
-    <div class="cv-reveal" style="max-width:1440px; margin:0 auto; background:#141414; color:#FDFCF7; border-radius:20px; overflow:hidden; position:relative; padding:100px 72px;">
+    <div class="cv-reveal" style="max-width:1440px; margin:0 auto; background:#111; color:#FDFCF7; border-radius:20px; overflow:hidden; position:relative; padding:100px 72px;">
       <div style="position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size: 28px 28px; opacity:0.7;"></div>
       <div style="position:absolute; right:-100px; top:50%; transform:translateY(-50%); width:520px; height:520px; border:1px solid rgba(239,59,55,0.25); border-radius:50%;"></div>
       <div style="position:absolute; right:40px; top:50%; transform:translateY(-50%); width:300px; height:300px; border:1px solid rgba(239,59,55,0.35); border-radius:50%;"></div>
       <div style="position:absolute; right:130px; top:50%; transform:translateY(-50%); width:160px; height:160px; background:radial-gradient(circle, rgba(239,59,55,0.6), transparent 65%);"></div>
       <div style="position:relative; max-width:820px;">
-        <div style="font-size:80px; line-height:0.95; font-weight:800; letter-spacing:-0.045em; margin-bottom:24px;">
+        <div style="font-size: clamp(28px, 6vw, 80px); line-height:0.95; font-weight:800; letter-spacing:-0.045em; margin-bottom:24px;">
           Have something<br>worth building<span style="color:#EF3B37;">?</span>
         </div>
         <p style="font-size:16px; line-height:1.6; color:rgba(255,255,255,0.7); max-width:520px; margin:0 0 32px;">
           Tell us what you're working on. We reply to every enquiry, whether we're the right fit or not.
         </p>
         <a href="./contact.html" class="cv-btn cv-btn-primary" style="background:#EF3B37; color:#FDFCF7; padding:16px 28px; border-radius:100px; font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px;">
-          <span style="width:8px; height:8px; border-radius:50%; background:#FDFCF7;"></span>Start a Project
+          <span style="width:8px; height:8px; border-radius:50%; background:#0a0a0a;"></span>Start a Project
         </a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer style="border-top:1px solid rgba(20,20,20,0.08); padding:56px 56px 40px;">
+  <footer style="border-top:1px solid rgba(255,255,255,0.06); padding:56px 56px 40px;">
     <div style="max-width:1440px; margin:0 auto;">
       <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px;">
         <div>
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
             <img src="./cvit-logo.svg" alt="Cvit Solutions" style="height:26px; display:block;">
-            <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:#666;">.Solutions</div>
+            <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:rgba(255,255,255,0.5);">.Solutions</div>
           </div>
-          <p style="font-size:13px; color:#666; line-height:1.6; max-width:280px;">A digital solutions studio based in Moratuwa, Sri Lanka. Websites, platforms, and brand systems built around real business needs.</p>
+          <p style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.6; max-width:280px;">A digital solutions studio based in Moratuwa, Sri Lanka. Websites, platforms, and brand systems built around real business needs.</p>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">Studio</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">Studio</div>
           <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
             <a class="cv-foot-link" href="./">Home</a>
             <a class="cv-foot-link" href="./services.html">Services</a>
@@ -236,7 +238,7 @@
           </div>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">Capabilities</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">Capabilities</div>
           <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
             <a class="cv-foot-link" href="#">Web design</a>
             <a class="cv-foot-link" href="#">Web development</a>
@@ -245,14 +247,14 @@
           </div>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">Studio</div>
-          <div style="font-size:13px; line-height:1.7; color:#3a3a3a;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">Studio</div>
+          <div style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.7);">
             Moratuwa<br>Sri Lanka<br><br>
             <a class="cv-foot-link" href="mailto:hello@cvit.solutions">hello@cvit.solutions</a>
           </div>
         </div>
       </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:32px; border-top:1px solid rgba(20,20,20,0.08); font-family:'JetBrains Mono',monospace; font-size:11px; color:#999; letter-spacing:0.05em;">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.05em;">
         <div>© 2026 Cvit Solutions</div>
         <div style="display:flex; gap:24px;">
           <a class="cv-foot-link" href="#">Privacy</a>

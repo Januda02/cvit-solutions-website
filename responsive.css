@@ -1,0 +1,156 @@
+/* Cvit Solutions — Responsive Overrides */
+
+/* Burger button (hidden on desktop) */
+.cv-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  padding: 0;
+}
+.cv-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #FDFCF7;
+  transition: transform .3s cubic-bezier(.22,.61,.36,1), opacity .3s cubic-bezier(.22,.61,.36,1);
+}
+.cv-burger span + span { margin-top: 5px; }
+.cv-burger.is-open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.cv-burger.is-open span:nth-child(2) { opacity: 0; }
+.cv-burger.is-open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile nav overlay (triggered by JS) */
+.cv-nav-links.is-open {
+  display: flex !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(10,10,10,0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 28px !important;
+  font-size: 22px !important;
+  z-index: 55 !important;
+  width: 100% !important;
+  height: 100vh !important;
+}
+.cv-nav-links.is-open .cv-nav-link { color: #FDFCF7 !important; font-size: 22px; }
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .cv-nav-inner { padding: 16px 28px !important; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  /* Nav */
+  .cv-burger { display: flex; }
+  .cv-nav-links { display: none !important; }
+  .cv-nav-cta { display: none !important; }
+  .cv-nav-inner { padding: 14px 20px !important; }
+  .cv-nav-inner img { height: 24px !important; width: auto !important; }
+
+  /* Force single-column grids */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Unstick sticky sidebars */
+  [style*="position:sticky"], [style*="position: sticky"] {
+    position: relative !important;
+  }
+
+  /* Remove fixed dimensions on h1 */
+  h1[style*="width"] { width: auto !important; height: auto !important; }
+
+  /* Max-width overrides — let content fill mobile width */
+  p[style*="max-width"], div[style*="max-width"]:not(.cv-nav-inner) {
+    max-width: 100% !important;
+  }
+
+  /* ── Padding reduction ── */
+  [style*="padding"][style*="56px"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  [style*="padding"][style*="72px"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  footer { padding: 32px 20px !important; }
+
+  /* Vertical padding reduction */
+  section[style*="padding:140px"], section[style*="padding: 140px"] {
+    padding-top: 60px !important; padding-bottom: 60px !important;
+  }
+  section[style*="padding:120px"], section[style*="padding: 120px"] {
+    padding-top: 56px !important; padding-bottom: 56px !important;
+  }
+  section[style*="padding:100px"], section[style*="padding: 100px"] {
+    padding-top: 48px !important; padding-bottom: 48px !important;
+  }
+
+  /* CTA box inner padding */
+  [style*="padding:120px 72px"], [style*="padding:100px 72px"],
+  [style*="padding: 100px 72px"], [style*="padding: 120px 72px"] {
+    padding: 48px 24px !important;
+  }
+
+  /* ── Gap reduction ── */
+  [style*="gap:80px"], [style*="gap: 80px"] { gap: 24px !important; }
+  [style*="gap:64px"], [style*="gap: 64px"] { gap: 24px !important; }
+  [style*="gap:60px"], [style*="gap: 60px"] { gap: 20px !important; }
+  [style*="gap:56px"], [style*="gap: 56px"] { gap: 20px !important; }
+  [style*="gap:48px"], [style*="gap: 48px"] { gap: 20px !important; }
+  [style*="gap:40px"], [style*="gap: 40px"] { gap: 16px !important; }
+
+  /* ── Margin reduction ── */
+  [style*="margin-bottom:80px"], [style*="margin-bottom: 80px"] { margin-bottom: 32px !important; }
+  [style*="margin-bottom:72px"], [style*="margin-bottom: 72px"] { margin-bottom: 28px !important; }
+  [style*="margin-bottom:64px"], [style*="margin-bottom: 64px"] { margin-bottom: 24px !important; }
+  [style*="margin-bottom:56px"], [style*="margin-bottom: 56px"] { margin-bottom: 24px !important; }
+
+  /* ── Hide complex hero elements ── */
+  [data-hero-stage] { display: none !important; }
+  [data-hero-3d] { display: none !important; }
+  [data-hero-laptop] { display: none !important; }
+
+  /* Service rows — stack */
+  .cv-srv, .cv-svc { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+  /* Project cards — auto height on mobile */
+  .cv-proj[style*="aspect-ratio"] { aspect-ratio: auto !important; min-height: 260px; }
+
+  /* Process steps — horizontal scroll */
+  [style*="repeat(5, 1fr)"] {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 16px !important;
+    padding-bottom: 16px !important;
+  }
+  [style*="repeat(5, 1fr)"] > .cv-step {
+    min-width: 220px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+  [style*="repeat(5, 1fr)"] > [style*="position:absolute"] { display: none !important; }
+
+  /* Footer grid */
+  footer [style*="grid-template-columns"] { gap: 32px !important; }
+}
+
+/* ── Small mobile ── */
+@media (max-width: 480px) {
+  .cv-nav-inner { padding: 12px 16px !important; }
+  footer { padding: 24px 16px !important; }
+}

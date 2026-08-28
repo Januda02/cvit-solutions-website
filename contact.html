@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  body { margin:0; font-family:'Montserrat',sans-serif; background:#FDFCF7; color:#141414; -webkit-font-smoothing:antialiased; }
-  a { color:#141414; text-decoration:none; transition: color .3s ease; }
+  body { margin:0; font-family:'Montserrat',sans-serif; background:#0a0a0a; color:#FDFCF7; -webkit-font-smoothing:antialiased; }
+  a { color:#FDFCF7; text-decoration:none; transition: color .3s ease; }
   a:hover { color:#EF3B37; }
   ::selection { background:#EF3B37; color:#FDFCF7; }
   :root { --ease: cubic-bezier(.22,.61,.36,1); }
@@ -21,7 +21,7 @@
   .cv-reveal { opacity:0; transform:translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--cv-delay,0ms); }
   .cv-reveal.is-in { opacity:1; transform:none; }
   .cv-nav { transition: padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease); }
-  .cv-nav.is-compact { background: rgba(253,252,247,0.94) !important; box-shadow: 0 1px 0 rgba(20,20,20,0.06), 0 8px 24px rgba(20,20,20,0.04); }
+  .cv-nav.is-compact { background: rgba(10,10,10,0.94) !important; box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 8px 24px rgba(0,0,0,0.4); }
   .cv-nav-link { position:relative; }
   .cv-nav-link::after { content:""; position:absolute; left:0; right:0; bottom:-6px; height:1.5px; background:#EF3B37; transform:scaleX(0); transform-origin:left; transition:transform .35s var(--ease); }
   .cv-nav-link:hover::after { transform:scaleX(1); }
@@ -30,37 +30,39 @@
   .cv-btn-primary:hover { box-shadow: 0 12px 28px rgba(239,59,55,0.28); }
   .cv-progress { position:fixed; top:0; left:0; height:2px; width:0%; background:#EF3B37; z-index:100; transition:width .12s linear; box-shadow: 0 0 12px rgba(239,59,55,0.5); }
   .cv-field { transition: border-color .3s var(--ease), background .3s var(--ease); }
-  .cv-field:focus-within { border-color:#EF3B37; background:#FDFCF7; }
-  .cv-field input, .cv-field textarea, .cv-field select { width:100%; border:none; outline:none; background:transparent; font-family:inherit; font-size:15px; color:#141414; padding:0; }
+  .cv-field:focus-within { border-color:#EF3B37; background:rgba(239,59,55,0.05); }
+  .cv-field input, .cv-field textarea, .cv-field select { width:100%; border:none; outline:none; background:transparent; font-family:inherit; font-size:15px; color:#FDFCF7; padding:0; }
   .cv-field textarea { resize:vertical; min-height:120px; line-height:1.5; }
-  .cv-field label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#999; margin-bottom:8px; display:block; }
+  .cv-field label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:8px; display:block; }
   .cv-chip { transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease); }
   .cv-chip:hover { border-color:#EF3B37; color:#EF3B37; }
-  .cv-chip.is-on { background:#141414; color:#FDFCF7; border-color:#141414; }
+  .cv-chip.is-on { background:#EF3B37; color:#FDFCF7; border-color:#EF3B37; }
   footer .cv-foot-link { position:relative; display:inline-block; }
   footer .cv-foot-link::after { content:""; position:absolute; left:0; bottom:-2px; width:100%; height:1px; background:#EF3B37; transform:scaleX(0); transform-origin:right; transition:transform .35s var(--ease); }
   footer .cv-foot-link:hover::after { transform:scaleX(1); transform-origin:left; }
   @media (prefers-reduced-motion: reduce) { .cv-reveal { opacity:1 !important; transform:none !important; } }
 </style>
 <script src="./cvit-motion.js"></script>
+<link rel="stylesheet" href="./responsive.css">
+<script src="./mobile-nav.js"></script>
 </helmet>
 
-<div style="width:100%; min-width:1280px; background:#FDFCF7; color:#141414;">
+<div style="width:100%; background:#0a0a0a; color:#FDFCF7;">
   <div class="cv-progress"></div>
 
   <!-- NAV -->
-  <nav class="cv-nav" style="position:sticky; top:0; z-index:50; background:rgba(253,252,247,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(20,20,20,0.06);">
+  <nav class="cv-nav" style="position:sticky; top:0; z-index:50; background:rgba(10,10,10,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06);">
     <div class="cv-nav-inner" style="max-width:1440px; margin:0 auto; padding:20px 56px; display:flex; align-items:center; justify-content:space-between;">
       <a href="./" style="display:flex; align-items:center; gap:10px;">
         <img src="./cvit-logo.svg" alt="Cvit Solutions" style="height:28px; display:block;">
-        <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:#666;">.Solutions</div>
+        <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:rgba(255,255,255,0.5);">.Solutions</div>
       </a>
       <div style="display:flex; align-items:center; gap:44px; font-size:14px; font-weight:500;">
-        <a href="./" class="cv-nav-link" style="color:#666;">Home</a>
-        <a href="./services.html" class="cv-nav-link" style="color:#666;">Services</a>
-        <a href="./about.html" class="cv-nav-link" style="color:#666;">About</a>
-        <a href="./projects.html" class="cv-nav-link" style="color:#666;">Projects</a>
-        <a href="#" class="cv-nav-link" style="color:#141414;">Contact</a>
+        <a href="./" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Home</a>
+        <a href="./services.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Services</a>
+        <a href="./about.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">About</a>
+        <a href="./projects.html" class="cv-nav-link" style="color:rgba(255,255,255,0.5);">Projects</a>
+        <a href="#" class="cv-nav-link" style="color:#FDFCF7;">Contact</a>
       </div>
       <a href="#form" class="cv-btn cv-btn-primary" style="background:#EF3B37; color:#FDFCF7; padding:12px 22px; border-radius:100px; font-size:13px; font-weight:600; display:inline-flex; align-items:center; gap:8px;">Start a Project →</a>
     </div>
@@ -68,17 +70,17 @@
 
   <!-- HERO -->
   <section style="max-width:1440px; margin:0 auto; padding:80px 56px 60px;">
-    <div class="cv-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase;">
+    <div class="cv-reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase;">
       <span>◆ Contact / Get in touch</span>
       <span style="display:inline-flex; align-items:center; gap:8px;">
         <span style="width:6px; height:6px; background:#EF3B37; border-radius:50%; animation: cvitPulse 2s infinite;"></span>
         Accepting new projects
       </span>
     </div>
-    <h1 class="cv-reveal" style="margin:0; font-size:120px; line-height:0.9; font-weight:800; letter-spacing:-0.045em;">
+    <h1 class="cv-reveal" style="margin:0; font-size: clamp(36px, 8vw, 120px); line-height:0.9; font-weight:800; letter-spacing:-0.045em;">
       Let's build<br>something<br><span style="font-style:italic; font-weight:500;">worth shipping</span><span style="color:#EF3B37;">.</span>
     </h1>
-    <p class="cv-reveal" style="font-size:19px; line-height:1.55; color:#3a3a3a; max-width:640px; margin:32px 0 0;">
+    <p class="cv-reveal" style="font-size:19px; line-height:1.55; color:rgba(255,255,255,0.7); max-width:640px; margin:32px 0 0;">
       Tell us about the site, platform, or brand you're planning. We reply to every enquiry — usually within a few working days.
     </p>
   </section>
@@ -88,72 +90,72 @@
     <div class="cv-reveal" style="display:grid; grid-template-columns: 1.6fr 1fr; gap:48px; align-items:start;">
 
       <!-- FORM -->
-      <form onsubmit="return false;" style="border:1px solid rgba(20,20,20,0.15); border-radius:20px; padding:48px 56px; background:#FDFCF7;">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.15em; color:#999; text-transform:uppercase; margin-bottom:12px;">◆ Enquiry form</div>
-        <h2 style="margin:0 0 36px; font-size:36px; font-weight:800; letter-spacing:-0.025em; line-height:1;">A few quick things<span style="color:#EF3B37;">.</span></h2>
+      <form onsubmit="return false;" style="border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:48px 56px; background:#111;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.15em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:12px;">◆ Enquiry form</div>
+        <h2 style="margin:0 0 36px; font-size: clamp(22px, 3vw, 36px); font-weight:800; letter-spacing:-0.025em; line-height:1;">A few quick things<span style="color:#EF3B37;">.</span></h2>
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:20px;">
-          <div class="cv-field" style="border:1px solid rgba(20,20,20,0.15); border-radius:10px; padding:16px 18px;">
+          <div class="cv-field" style="border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:16px 18px;">
             <label>Your name</label>
             <input type="text" placeholder="e.g. Anushka Perera">
           </div>
-          <div class="cv-field" style="border:1px solid rgba(20,20,20,0.15); border-radius:10px; padding:16px 18px;">
+          <div class="cv-field" style="border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:16px 18px;">
             <label>Email</label>
             <input type="email" placeholder="you@company.com">
           </div>
         </div>
 
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-bottom:20px;">
-          <div class="cv-field" style="border:1px solid rgba(20,20,20,0.15); border-radius:10px; padding:16px 18px;">
+          <div class="cv-field" style="border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:16px 18px;">
             <label>Company or project</label>
             <input type="text" placeholder="Cvit Solutions">
           </div>
-          <div class="cv-field" style="border:1px solid rgba(20,20,20,0.15); border-radius:10px; padding:16px 18px;">
+          <div class="cv-field" style="border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:16px 18px;">
             <label>Country</label>
             <input type="text" placeholder="Sri Lanka">
           </div>
         </div>
 
         <div style="margin-bottom:24px;">
-          <label style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#999; margin-bottom:12px; display:block;">What do you need?</label>
+          <label style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:12px; display:block;">What do you need?</label>
           <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="cv-chip is-on" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Web design</span>
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Web development</span>
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Digital platform</span>
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Brand &amp; identity</span>
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Something else</span>
+            <span class="cv-chip is-on" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Web design</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Web development</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Digital platform</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Brand &amp; identity</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer;">Something else</span>
           </div>
         </div>
 
         <div style="margin-bottom:24px;">
-          <label style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#999; margin-bottom:12px; display:block;">Budget (approximate)</label>
+          <label style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:12px; display:block;">Budget (approximate)</label>
           <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">&lt; $2k</span>
-            <span class="cv-chip is-on" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">$2k – $6k</span>
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">$6k – $15k</span>
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">$15k +</span>
-            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(20,20,20,0.15); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">Not sure yet</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">&lt; $2k</span>
+            <span class="cv-chip is-on" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">$2k – $6k</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">$6k – $15k</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">$15k +</span>
+            <span class="cv-chip" style="padding:8px 14px; border:1px solid rgba(255,255,255,0.1); border-radius:100px; font-size:13px; font-weight:500; cursor:pointer; font-family:'JetBrains Mono',monospace;">Not sure yet</span>
           </div>
         </div>
 
-        <div class="cv-field" style="border:1px solid rgba(20,20,20,0.15); border-radius:10px; padding:16px 18px; margin-bottom:32px;">
+        <div class="cv-field" style="border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:16px 18px; margin-bottom:32px;">
           <label>Tell us about it</label>
           <textarea placeholder="A few lines is plenty — what's the project, who's it for, and when would you like to launch?"></textarea>
         </div>
 
         <div style="display:flex; align-items:center; justify-content:space-between; gap:20px;">
-          <div style="font-size:12px; color:#999; line-height:1.5; max-width:360px;">
+          <div style="font-size:12px; color:rgba(255,255,255,0.4); line-height:1.5; max-width:360px;">
             We only use these details to reply to your enquiry. Nothing else, ever.
           </div>
           <button type="submit" class="cv-btn cv-btn-primary" style="background:#EF3B37; color:#FDFCF7; padding:16px 28px; border-radius:100px; font-size:14px; font-weight:600; display:inline-flex; align-items:center; gap:10px; border:none; cursor:pointer; font-family:inherit;">
-            <span style="width:8px; height:8px; border-radius:50%; background:#FDFCF7;"></span>Send enquiry →
+            <span style="width:8px; height:8px; border-radius:50%; background:#0a0a0a;"></span>Send enquiry →
           </button>
         </div>
       </form>
 
       <!-- SIDE -->
       <div style="display:flex; flex-direction:column; gap:16px; position:sticky; top:100px;">
-        <div style="background:#141414; color:#FDFCF7; border-radius:16px; padding:32px; position:relative; overflow:hidden;">
+        <div style="background:#111; color:#FDFCF7; border-radius:16px; padding:32px; position:relative; overflow:hidden;">
           <div style="position:absolute; inset:0; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px); background-size:20px 20px; opacity:0.6;"></div>
           <div style="position:relative;">
             <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.5); text-transform:uppercase; margin-bottom:14px;">◆ Direct</div>
@@ -162,74 +164,74 @@
           </div>
         </div>
 
-        <div style="border:1px solid rgba(20,20,20,0.15); border-radius:16px; padding:28px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#999; text-transform:uppercase; margin-bottom:14px;">◆ Studio</div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:28px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:14px;">◆ Studio</div>
           <div style="font-size:15px; font-weight:600; margin-bottom:4px;">Cvit Solutions</div>
-          <div style="font-size:14px; color:#666; line-height:1.6;">Moratuwa<br>Sri Lanka</div>
+          <div style="font-size:14px; color:rgba(255,255,255,0.5); line-height:1.6;">Moratuwa<br>Sri Lanka</div>
         </div>
 
-        <div style="border:1px solid rgba(20,20,20,0.15); border-radius:16px; padding:28px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#999; text-transform:uppercase; margin-bottom:14px;">◆ Hours</div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:28px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:14px;">◆ Hours</div>
           <div style="display:flex; justify-content:space-between; font-size:14px; line-height:1.9;">
-            <div style="color:#666;">Mon – Fri</div>
+            <div style="color:rgba(255,255,255,0.5);">Mon – Fri</div>
             <div>09:00 – 18:00 IST</div>
           </div>
           <div style="display:flex; justify-content:space-between; font-size:14px; line-height:1.9;">
-            <div style="color:#666;">Weekends</div>
+            <div style="color:rgba(255,255,255,0.5);">Weekends</div>
             <div>By appointment</div>
           </div>
         </div>
 
-        <div style="border:1px solid rgba(20,20,20,0.15); border-radius:16px; padding:28px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#999; text-transform:uppercase; margin-bottom:14px;">◆ Response time</div>
-          <div style="font-size:32px; font-weight:800; letter-spacing:-0.025em; line-height:1;">Within<br>2 days<span style="color:#EF3B37;">.</span></div>
-          <div style="font-size:13px; color:#666; margin-top:10px;">We reply to every enquiry — whether we're the right fit or not.</div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:28px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.15em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:14px;">◆ Response time</div>
+          <div style="font-size: clamp(20px, 2.5vw, 32px); font-weight:800; letter-spacing:-0.025em; line-height:1;">Within<br>2 days<span style="color:#EF3B37;">.</span></div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.5); margin-top:10px;">We reply to every enquiry — whether we're the right fit or not.</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ short -->
-  <section style="background:#f4f2ea; padding:100px 56px; border-top:1px solid rgba(20,20,20,0.08); border-bottom:1px solid rgba(20,20,20,0.08);">
+  <section style="background:#141414; padding:100px 56px; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
     <div style="max-width:1440px; margin:0 auto; display:grid; grid-template-columns: 1fr 1.6fr; gap:80px;">
       <div class="cv-reveal">
-        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">◆ FAQ</div>
-        <h2 style="margin:0; font-size:48px; line-height:1; font-weight:800; letter-spacing:-0.035em;">Common<br>questions<span style="color:#EF3B37;">.</span></h2>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">◆ FAQ</div>
+        <h2 style="margin:0; font-size: clamp(24px, 4vw, 48px); line-height:1; font-weight:800; letter-spacing:-0.035em;">Common<br>questions<span style="color:#EF3B37;">.</span></h2>
       </div>
-      <div style="border-top:1px solid rgba(20,20,20,0.15);">
-        <details class="cv-reveal" style="border-bottom:1px solid rgba(20,20,20,0.15); padding:24px 0;">
+      <div style="border-top:1px solid rgba(255,255,255,0.1);">
+        <details class="cv-reveal" style="border-bottom:1px solid rgba(255,255,255,0.1); padding:24px 0;">
           <summary style="font-size:18px; font-weight:700; letter-spacing:-0.015em; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">Do you take on smaller projects? <span style="color:#EF3B37; font-family:'JetBrains Mono',monospace;">+</span></summary>
-          <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:14px 0 0; max-width:640px;">Yes — most of our work is for small businesses and independent educators. The form's budget field is a rough guide; if the fit is right on both sides, we'll figure it out.</p>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:14px 0 0; max-width:640px;">Yes — most of our work is for small businesses and independent educators. The form's budget field is a rough guide; if the fit is right on both sides, we'll figure it out.</p>
         </details>
-        <details class="cv-reveal" style="--cv-delay:80ms; border-bottom:1px solid rgba(20,20,20,0.15); padding:24px 0;">
+        <details class="cv-reveal" style="--cv-delay:80ms; border-bottom:1px solid rgba(255,255,255,0.1); padding:24px 0;">
           <summary style="font-size:18px; font-weight:700; letter-spacing:-0.015em; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">Do you work with clients outside Sri Lanka? <span style="color:#EF3B37; font-family:'JetBrains Mono',monospace;">+</span></summary>
-          <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:14px 0 0; max-width:640px;">Yes. Most of our recent work has been with clients based outside Sri Lanka. We're comfortable working async and use video calls when needed.</p>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:14px 0 0; max-width:640px;">Yes. Most of our recent work has been with clients based outside Sri Lanka. We're comfortable working async and use video calls when needed.</p>
         </details>
-        <details class="cv-reveal" style="--cv-delay:160ms; border-bottom:1px solid rgba(20,20,20,0.15); padding:24px 0;">
+        <details class="cv-reveal" style="--cv-delay:160ms; border-bottom:1px solid rgba(255,255,255,0.1); padding:24px 0;">
           <summary style="font-size:18px; font-weight:700; letter-spacing:-0.015em; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">How long does a typical project take? <span style="color:#EF3B37; font-family:'JetBrains Mono',monospace;">+</span></summary>
-          <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:14px 0 0; max-width:640px;">It varies with scope. A focused marketing site is measured in weeks; a platform build is measured in months. We agree the shape of the timeline together before starting.</p>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:14px 0 0; max-width:640px;">It varies with scope. A focused marketing site is measured in weeks; a platform build is measured in months. We agree the shape of the timeline together before starting.</p>
         </details>
         <details class="cv-reveal" style="--cv-delay:240ms; padding:24px 0;">
           <summary style="font-size:18px; font-weight:700; letter-spacing:-0.015em; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;">Do you handle hosting and ongoing maintenance? <span style="color:#EF3B37; font-family:'JetBrains Mono',monospace;">+</span></summary>
-          <p style="font-size:14px; line-height:1.6; color:#3a3a3a; margin:14px 0 0; max-width:640px;">We can — either as part of the initial build or as an ongoing retainer. If you'd rather host and maintain the site with your own team, we hand things over cleanly.</p>
+          <p style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.7); margin:14px 0 0; max-width:640px;">We can — either as part of the initial build or as an ongoing retainer. If you'd rather host and maintain the site with your own team, we hand things over cleanly.</p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer style="border-top:1px solid rgba(20,20,20,0.08); padding:56px 56px 40px;">
+  <footer style="border-top:1px solid rgba(255,255,255,0.06); padding:56px 56px 40px;">
     <div style="max-width:1440px; margin:0 auto;">
       <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px;">
         <div>
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
             <img src="./cvit-logo.svg" alt="Cvit Solutions" style="height:26px; display:block;">
-            <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:#666;">.Solutions</div>
+            <div style="font-weight:500; font-size:13px; letter-spacing:0.02em; color:rgba(255,255,255,0.5);">.Solutions</div>
           </div>
-          <p style="font-size:13px; color:#666; line-height:1.6; max-width:280px;">A digital solutions studio based in Moratuwa, Sri Lanka.</p>
+          <p style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.6; max-width:280px;">A digital solutions studio based in Moratuwa, Sri Lanka.</p>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">Studio</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">Studio</div>
           <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
             <a class="cv-foot-link" href="./">Home</a>
             <a class="cv-foot-link" href="./services.html">Services</a>
@@ -239,7 +241,7 @@
           </div>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">Capabilities</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">Capabilities</div>
           <div style="display:flex; flex-direction:column; gap:10px; font-size:13px;">
             <a class="cv-foot-link" href="#">Web design</a>
             <a class="cv-foot-link" href="#">Web development</a>
@@ -248,14 +250,14 @@
           </div>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#999; text-transform:uppercase; margin-bottom:16px;">Studio</div>
-          <div style="font-size:13px; line-height:1.7; color:#3a3a3a;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:16px;">Studio</div>
+          <div style="font-size:13px; line-height:1.7; color:rgba(255,255,255,0.7);">
             Moratuwa<br>Sri Lanka<br><br>
             <a class="cv-foot-link" href="mailto:hello@cvit.solutions">hello@cvit.solutions</a>
           </div>
         </div>
       </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:32px; border-top:1px solid rgba(20,20,20,0.08); font-family:'JetBrains Mono',monospace; font-size:11px; color:#999; letter-spacing:0.05em;">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding-top:32px; border-top:1px solid rgba(255,255,255,0.06); font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.05em;">
         <div>© 2026 Cvit Solutions</div>
         <div style="display:flex; gap:24px;">
           <a class="cv-foot-link" href="#">Privacy</a>

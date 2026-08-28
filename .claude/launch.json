@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "cvit-dev",
-      "runtimeExecutable": "cmd",
-      "runtimeArgs": ["/c", "cd /d C:\\Users\\ASUS\\Downloads\\cvit-web-build && npm run dev"],
+      "name": "cvit-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3000", "."],
       "port": 3000
     }
   ]

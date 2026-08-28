@@ -74,19 +74,9 @@
   /* Unstick sticky sidebars */
   [style*="position:sticky"], [style*="position: sticky"] {
     position: relative !important;
+    top: auto !important;
   }
 
-  /* Why Cvit section — ensure sidebar and numbered items don't overlap */
-  [style*="grid-template-columns: 380px"],
-  [style*="grid-template-columns:380px"] {
-    gap: 0 !important;
-  }
-  [style*="grid-template-columns: 380px"] > [style*="position"],
-  [style*="grid-template-columns:380px"] > [style*="position"] {
-    margin-bottom: 8px !important;
-    padding-bottom: 24px !important;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
 
   /* Remove fixed dimensions on h1 */
   h1[style*="width"] { width: auto !important; height: auto !important; }
@@ -152,6 +142,17 @@
   [style*="gap:56px"], [style*="gap: 56px"] { gap: 20px !important; }
   [style*="gap:48px"], [style*="gap: 48px"] { gap: 20px !important; }
   [style*="gap:40px"], [style*="gap: 40px"] { gap: 16px !important; }
+
+  /* Why Cvit section — switch to block layout on mobile */
+  [style*="grid-template-columns: 380px"],
+  [style*="grid-template-columns:380px"] {
+    display: block !important;
+  }
+  [style*="grid-template-columns: 380px"] > [style*="position"],
+  [style*="grid-template-columns:380px"] > [style*="position"] {
+    width: 100% !important;
+    margin-bottom: 32px !important;
+  }
 
   /* ── Margin reduction ── */
   [style*="margin-bottom:80px"], [style*="margin-bottom: 80px"] { margin-bottom: 32px !important; }
